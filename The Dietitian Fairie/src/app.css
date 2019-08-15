@@ -1,0 +1,165 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+
+@import "~nativescript-theme-core/css/core.light.css";
+
+/*
+For example, the following CSS rule changes the font size of all UI
+components that have the btn class name.
+*/
+
+.fa {
+  font-family: "FontAwesome";
+}
+
+.far {
+  font-family: Font Awesome 5 Free, fa-regular-400;
+  font-weight: 400;
+}
+
+.fab {
+  font-family: Font Awesome 5 Brands, fa-brands-400;
+  font-weight: 400;
+}
+
+.fas {
+  font-family: Font Awesome 5 Free, fa-solid-900;
+  font-weight: 900;
+}
+
+.wizard-btn-round {
+  background-color: #cc0c0c;
+  border-radius: 50%;
+  height: 50;
+  width: 50;
+  color: white;
+}
+
+.tab-btn-round {
+  border-radius: 50%;
+  height: 75;
+  width: 75;
+  color: white;
+  font-size: 35;
+}
+
+.btn-primary {
+  height: 50;
+  background-color: #cc0c0c;
+  border-radius: 25;
+  font-size: 20;
+  font-weight: 400;
+  font-family: "Nunito";
+}
+
+.reg-font {
+  font-family: "Nunito";
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+}
+
+.list-view {
+  border: 1px solid #cc0c0c;
+}
+
+.list-item {
+  /* padding-left: 15; */
+  /* border-color: rgb(158, 156, 156);
+  border-bottom-width: 1; */
+  background-color: white;
+  height: 65;
+  margin-left: 15;
+}
+
+.header {
+  font-family: "Nunito";
+  font-size: 21;
+}
+
+.gray {
+  background-color: #f2f2f2;
+}
+
+.action-bar-title {
+  font-family: "Caveat Brush";
+  font-size: 55 !important;
+  font-weight: 600;
+}
+
+.action-bar {
+  /* background-color: rgb(28, 155, 24); */
+  /* color: white; */
+  /* border-color: #000;
+  border-bottom-width: 0.5; */
+}
+
+.font-red {
+  color: #cc0c0c;
+}
+
+.font-green {
+  color: #82c91e;
+}
+
+.font-orange {
+  color: #fd7e14;
+}
+
+.font-purple {
+  color: #be4bdb;
+}
+
+.font-white {
+  color: #fff;
+}
+
+.font-black {
+  color: #000000;
+}
+
+.font-grey {
+  color: #696868;
+}
+
+.middle {
+  vertical-align: center;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.bottom {
+  vertical-align: bottom;
+}
+
+.left {
+  horizontal-align: left;
+}
+
+.center {
+  horizontal-align: center;
+}
+
+.right {
+  horizontal-align: right;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.underline {
+  text-decoration: underline;
+}

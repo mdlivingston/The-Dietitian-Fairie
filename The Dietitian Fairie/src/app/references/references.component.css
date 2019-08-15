@@ -1,0 +1,19 @@
+/* Add mobile styles for the component here.  */
+
+.overlay {
+  background-color: #858483;
+  opacity: 0.5;
+}
+
+.select-date {
+  background-color: #ffffff;
+  margin: 0 24;
+  border-radius: 10;
+}
+
+.title-select-date {
+  padding: 16 0 4 0;
+  text-align: center;
+  color: #cc0c0c;
+  font-weight: 500;
+}
