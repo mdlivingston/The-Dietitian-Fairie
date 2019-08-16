@@ -1,0 +1,36 @@
+<GridLayout columns="*,*" rows="100, auto, auto, auto" #overlay class="overlay">
+
+    <StackLayout colSpan="2" row="0" class="middle">
+        <Label class="answer-text text-center" [text]="bmi" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout colSpan="2" row="1" class="center middle input-field ">
+        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
+            class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Weight" textWrap="true" marginBottom="25"></Label>
+
+    </StackLayout>
+
+    <StackLayout col="0" row="2" class="center middle input-field ">
+        <TextField #heightFtField keyboardType="number" autocorrect="false" (textChange)="onHeightFtChange($event)"
+            class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Height Feet" textWrap="true" marginBottom="25"></Label>
+
+    </StackLayout>
+    <StackLayout col="1" row="2" class="center middle input-field ">
+        <TextField #heightInField keyboardType="number" autocorrect="false" (textChange)="onHeightInChange($event)"
+            class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Height Inches" textWrap="true" marginBottom="25"></Label>
+
+    </StackLayout>
+    <Button colSpan="2" row="3" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory=true pageTransition="curlDown"
+        class="btn btn-primary m-t-20"></Button>
+    <Image #fairie row="0" class="fairie" colSpan="2" margin="10" height="74" width="75"
+        src="{{'~/images/fairie.png'}}">
+    </Image>
+</GridLayout>

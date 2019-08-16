@@ -37,11 +37,11 @@ components that have the btn class name.
 }
 
 .wizard-btn-round {
-  background-color: #cc0c0c;
+  background-color: white;
   border-radius: 50%;
   height: 50;
   width: 50;
-  color: white;
+  color: black;
 }
 
 .tab-btn-round {
@@ -54,11 +54,9 @@ components that have the btn class name.
 
 .btn-primary {
   height: 50;
-  background-color: #cc0c0c;
-  border-radius: 25;
+  background-color: white;
   font-size: 20;
-  font-weight: 400;
-  font-family: "Nunito";
+  color: black;
 }
 
 .reg-font {

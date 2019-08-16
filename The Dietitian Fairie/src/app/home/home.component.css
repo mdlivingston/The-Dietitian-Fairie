@@ -15,3 +15,11 @@
   color: #000;
   font-family: "Nunito";
 }
+
+.bmi-card {
+  border-color: black;
+  border-bottom-width: 1;
+}
+.fairie {
+  transform: translateY(-100);
+}

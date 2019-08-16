@@ -1,21 +1,22 @@
+import { BmiComponent } from './bmi.component';
+import { BmiRoutingModule } from './bmi-routing.module';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { HomeRoutingModule } from "./home-routing.module";
-import { HomeComponent } from "./home.component";
+
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        HomeRoutingModule,
+        BmiRoutingModule,
         NativeScriptFormsModule,
     ],
     declarations: [
-        HomeComponent
+        BmiComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class HomeModule { }
+export class BmiModule { }
