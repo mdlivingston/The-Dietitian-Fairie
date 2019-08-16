@@ -13,7 +13,7 @@ export class BmiComponent implements OnInit {
     weight: number;
     heightIn: number;
     heightFt: number;
-    bmi: string;
+    bmi: string = '0';
     @ViewChild('overlay', { static: false }) overlay: ElementRef;
     @ViewChild("weightField", { static: false }) weightField: ElementRef;
     @ViewChild("heightFtField", { static: false }) heightFtField: ElementRef;

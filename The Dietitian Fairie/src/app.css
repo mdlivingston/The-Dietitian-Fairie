@@ -90,9 +90,10 @@ components that have the btn class name.
 }
 
 .action-bar-title {
-  font-family: "Caveat Brush";
-  font-size: 55 !important;
-  font-weight: 600;
+  font-family: "Bellefair", serif;
+}
+.fairie-font {
+  font-family: "Bellefair", serif;
 }
 
 .action-bar {
@@ -100,6 +101,7 @@ components that have the btn class name.
   /* color: white; */
   /* border-color: #000;
   border-bottom-width: 0.5; */
+  font-size: 24;
 }
 
 .font-red {

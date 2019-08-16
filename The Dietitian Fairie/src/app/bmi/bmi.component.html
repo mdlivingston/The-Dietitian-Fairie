@@ -1,7 +1,7 @@
 <GridLayout columns="*,*" rows="100, auto, auto, auto" #overlay class="overlay">
 
     <StackLayout colSpan="2" row="0" class="middle">
-        <Label class="answer-text text-center" [text]="bmi" textWrap="true" marginBottom="25"></Label>
+        <Label class="answer-text text-center" [text]="'BMI: ' + bmi" textWrap="true" marginBottom="25"></Label>
     </StackLayout>
     <StackLayout colSpan="2" row="1" class="center middle input-field ">
         <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
