@@ -14,7 +14,7 @@ import { LocationStrategy } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-    @ViewChild("fairie", { static: false }) fairie: ElementRef;
+    @ViewChild("fairy", { static: false }) fairy: ElementRef;
     constructor(public router: RouterExtensions, private page: Page, private location: LocationStrategy) {
         location.onPopState(() => {
             this.dropInEllieFly();
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     }
 
     flyEllieFly() {
-        this.fairie.nativeElement.animate({
+        this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
             translate: { x: 400, y: 0 },
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         }).then(() => {
-            this.fairie.nativeElement.animate({
+            this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),
                 translate: { x: -400, y: -400 },
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
                 //iterations: 5,
                 curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
             }).then(() => {
-                this.fairie.nativeElement.animate({
+                this.fairy.nativeElement.animate({
                     //opacity: .9,
                     //backgroundColor: new Color("Blue"),
                     translate: { x: 0, y: 0 },
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
         })
     }
     backFlipEllieFly() {
-        this.fairie.nativeElement.animate({
+        this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
             translate: { x: -100, y: 0 },
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         }).then(() => {
-            this.fairie.nativeElement.animate({
+            this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),
                 translate: { x: 0, y: 0 },
@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
         })
     }
     dropInEllieFly() {
-        this.fairie.nativeElement.animate({
+        this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
             translate: { x: 0, y: 0 },
@@ -105,23 +105,44 @@ export class HomeComponent implements OnInit {
         })
     }
     pageUpEllieFly() {
-        this.fairie.nativeElement.animate({
+        this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
             translate: { x: 200, y: 700 },
             //scale: { x: 2, y: 2 },
-            rotate: 30,
+            rotate: 80,
             duration: 700,
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
+    pageSlideEllieFly() {
+        this.fairy.nativeElement.animate({
+            //opacity: .9,
+            //backgroundColor: new Color("Blue"),
+            translate: { x: 500, y: 0 },
+            //scale: { x: 2, y: 2 },
+            rotate: 40,
+            duration: 1200,
+            //delay: 20,
+            //iterations: 5,
+            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+        })
+    }
     goToPage(page) {
-        this.pageUpEllieFly()
-        setTimeout(() => {
-            this.router.navigate([page], { clearHistory: true, animated: true, transition: { name: 'curlUp', duration: 1200 } });
-        }, 100);
+        if (page == '/bmi') {
+            this.pageUpEllieFly()
+            setTimeout(() => {
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'curlUp', duration: 1000 } });
+            }, 100);
+        } else if (page == '/conversions') {
+            this.pageSlideEllieFly()
+            setTimeout(() => {
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideLeft', duration: 700 } });
+            }, 100);
+        }
+
 
     }
     // openModal(type) {

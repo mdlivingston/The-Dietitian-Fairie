@@ -1,5 +1,5 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" fontSize="22" text="The Dietitian Fairie"></Label>
+    <Label class="action-bar-title" fontSize="22" text="The Dietitian Fairy"></Label>
 </ActionBar>
 
 <!--
@@ -46,20 +46,29 @@
 
 
     <StackLayout>
-        <Image class="fairie" (tap)="backFlipEllieFly()" #fairie row="0" margin="5" height="75" width="75"
-            src="{{'~/images/fairie.png'}}">
+        <Image class="fairy" (tap)="backFlipEllieFly()" #fairy row="0" margin="5" height="75" width="75"
+            src="{{'~/images/fairy.png'}}">
         </Image>
 
         <MDCardView class="bmi-card m-b-20" elevation="5" (tap)="goToPage('/bmi')" rippleColor="black" width="95%"
             height="30%">
             <StackLayout padding="12">
-                <Label text="Calculate BMI" class="fairie-font" fontSize="20" marginBottom="16"></Label>
-                <Label text="BMI = (703 * weight (lbs)) / (height (inches)  * height (inches))" fontSize="14"
-                    textWrap="true"></Label>
+                <Label text="Calculate BMI" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+                <Label text="BMI = (weight in kilograms)/(height in meters^2)" fontSize="14" textWrap="true"></Label>
             </StackLayout>
         </MDCardView>
 
-
+        <MDCardView class="bmi-card m-b-20" elevation="5" (tap)="goToPage('/conversions')" rippleColor="black"
+            width="95%" height="30%">
+            <StackLayout padding="12">
+                <Label text="Common Conversions" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+                <Label text="1 inch= 2.54 centimeters
+1 meter= 100 centimeters
+1 kilogram=2.2 pounds
+Fahrenheit to Celsius (X°F − 32) × 5/9 = X°C" fontSize="14" textWrap="true">
+                </Label>
+            </StackLayout>
+        </MDCardView>
     </StackLayout>
 
 

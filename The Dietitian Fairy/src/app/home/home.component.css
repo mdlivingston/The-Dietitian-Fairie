@@ -5,7 +5,6 @@
 }
 
 .button-font {
-  font-family: "Nunito";
   font-size: 18;
 }
 
@@ -13,13 +12,12 @@
   padding: 8 16 10 16;
   font-size: 28;
   color: #000;
-  font-family: "Nunito";
 }
 
 .bmi-card {
   border-color: black;
   border-bottom-width: 1;
 }
-.fairie {
+.fairy {
   transform: translateY(-100);
 }

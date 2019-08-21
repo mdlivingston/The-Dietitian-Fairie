@@ -1,11 +1,10 @@
-/* Add mobile styles for the component here.  */
 .input-field {
-  margin-bottom: 25;
   color: black;
-  padding: 10 10 10 10;
+  padding: 10 10 0 10;
 }
 .input {
   font-size: 19;
+  width: 100%;
   placeholder-color: #a8a8a8;
   color: black;
 }
@@ -14,6 +13,6 @@
   color: black;
   font-size: 24;
 }
-.fairie {
-  transform: translateY(-100);
+.fairy {
+  transform: translateY(1000) translateX(-100);
 }

@@ -91,8 +91,9 @@ components that have the btn class name.
 
 .action-bar-title {
   font-family: "Bellefair", serif;
+  fontsize: 22;
 }
-.fairie-font {
+.fairy-font {
   font-family: "Bellefair", serif;
 }
 
