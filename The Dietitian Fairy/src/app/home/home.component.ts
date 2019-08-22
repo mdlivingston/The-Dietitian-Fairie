@@ -29,6 +29,29 @@ export class HomeComponent implements OnInit {
         }, 500);
     }
 
+
+    goToPage(page) {
+        if (page == '/bmi') {
+            this.pageUpEllieFly()
+            setTimeout(() => {
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'curlUp', duration: 1000 } });
+            }, 100);
+        } else if (page == '/conversions') {
+            this.pageSlideEllieFly()
+            setTimeout(() => {
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideLeft', duration: 700 } });
+            }, 100);
+        } else if (page == '/mifflin') {
+            this.floatDownEllieFly()
+            setTimeout(() => {
+                this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
+            }, 1300);
+        }
+
+
+    }
+
     flyEllieFly() {
         this.fairy.nativeElement.animate({
             //opacity: .9,
@@ -130,62 +153,29 @@ export class HomeComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    goToPage(page) {
-        if (page == '/bmi') {
-            this.pageUpEllieFly()
-            setTimeout(() => {
-                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'curlUp', duration: 1000 } });
-            }, 100);
-        } else if (page == '/conversions') {
-            this.pageSlideEllieFly()
-            setTimeout(() => {
-                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideLeft', duration: 700 } });
-            }, 100);
-        }
-
-
+    floatDownEllieFly() {
+        this.fairy.nativeElement.animate({
+            //opacity: .9,
+            //backgroundColor: new Color("Blue"),
+            translate: { x: 0, y: 500 },
+            //scale: { x: 2, y: 2 },
+            rotate: -90,
+            duration: 1200,
+            //delay: 20,
+            //iterations: 5,
+            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+        }).then(() => {
+            this.fairy.nativeElement.animate({
+                //opacity: .9,
+                //backgroundColor: new Color("Blue"),
+                translate: { x: 0, y: 500 },
+                //scale: { x: 2, y: 2 },
+                rotate: -30,
+                duration: 100,
+                //delay: 20,
+                //iterations: 5,
+                curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+            })
+        })
     }
-    // openModal(type) {
-    //     switch (type) {
-    //         case 'bmi':
-    //             console.log('test')
-    //             this.overlay.nativeElement.animate({
-    //                 opacity: .9,
-    //                 //backgroundColor: new Color("Blue"),
-    //                 // translate: { x: 0, y: 0 },
-    //                 //scale: { x: 2, y: 2 },
-    //                 //rotate: 100,
-    //                 duration: 500,
-    //                 //delay: 20,
-    //                 //iterations: 5,
-    //                 // curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-    //             })
-    //             //this._overlayGridLayout.animate({ opacity: 0.5, duration: 300 });
-    //             // this._selectDateGridLayout.animate({ opacity: 1, duration: 400 });
-    //             break;
-
-    //         default:
-    //             break;
-    //     }
-    // }
-    // closeModal() {
-    //     this.overlay.nativeElement.animate({
-    //         opacity: 0,
-    //         //backgroundColor: new Color("Blue"),
-    //         // translate: { x: 0, y: 0 },
-    //         //scale: { x: 2, y: 2 },
-    //         //rotate: 100,
-    //         duration: 500,
-    //         //delay: 20,
-    //         //iterations: 5,
-    //         // curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-    //     }).then(() => {
-    //         this.heightFtField.nativeElement.dismissSoftInput();
-    //         this.heightInField.nativeElement.dismissSoftInput();
-    //         this.weightField.nativeElement.dismissSoftInput();
-    //         this.flyEllieFly();
-    //     }
-    //     )
-    // }
-
 }
