@@ -1,0 +1,94 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" fontSize="22" text="Common Conversions"></Label>
+    <NavigationButton text="" (tap)="router.back()" android.systemIcon="ic_menu_back">
+    </NavigationButton>
+</ActionBar>
+
+
+<GridLayout columns="*,auto,*" rows="20, auto, auto, auto, auto, auto" #overlay class="overlay">
+
+    <!-- <StackLayout colSpan="3" row="0" class="top">
+        <Label class="answer-text text-center" [text]="'Common Conversions'" textWrap="true" ></Label>
+    </StackLayout> -->
+
+    <StackLayout col="0" row="1" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 0" (textChange)="cmInchChange($event, 0)"
+            [text]="inches ? inches.toFixed(3) : ''" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Inch" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="1" class="center top">
+        <Label class="h3 text-center font-black" text="=" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="1" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 1" (textChange)="cmInchChange($event, 1)"
+            [text]="cmInch ? cmInch.toFixed(3) : ''" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Centimeters" textWrap="true"></Label>
+    </StackLayout>
+
+
+    <StackLayout col="0" row="2" class="center top input-field ">
+        <TextField #meterField keyboardType="number" autocorrect="false" (focus)="focus = 0"
+            (textChange)="cmMeterChange($event,0)" class="input" [text]="meter ? meter.toFixed(3) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Meters" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="2" class="center top">
+        <Label class="h3 text-center font-black" text="=" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="2" class="center top input-field ">
+        <TextField #cmMeterField keyboardType="number" autocorrect="false" (focus)="focus = 1"
+            (textChange)="cmMeterChange($event,1)" class="input" [text]="cmMeter ? cmMeter.toFixed(3) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Centimeters" textWrap="true"></Label>
+    </StackLayout>
+
+
+    <StackLayout col="0" row="3" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 0" (textChange)="kgPoundChange($event,0)"
+            class="input" [text]="kg ? kg.toFixed(3) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Kilograms" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="3" class="center top">
+        <Label class="h3 text-center font-black" text="=" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="3" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 1" (textChange)="kgPoundChange($event,1)"
+            class="input" [text]="pounds ? pounds.toFixed(3) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Pounds" textWrap="true"></Label>
+    </StackLayout>
+
+
+    <StackLayout col="0" row="4" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 0" (textChange)="tempChange($event,0)"
+            class="input" [text]="faren ? faren.toFixed(3) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Fahrenheit" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="4" class="center top">
+        <Label class="h3 text-center font-black" text="=" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="4" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 1" (textChange)="tempChange($event,1)"
+            [text]="cels ? cels.toFixed(3) : ''" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Celsius" textWrap="true"></Label>
+    </StackLayout>
+
+    <Button colSpan="3" row="5" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory=true
+        pageTransition="slideRight" class="btn btn-primary top"></Button>
+    <Image #fairy row="4" class="fairy" colSpan="2" margin="10" height="75" width="75"
+        src="{{'~/images/fairyinverse.png'}}">
+    </Image>
+</GridLayout>
