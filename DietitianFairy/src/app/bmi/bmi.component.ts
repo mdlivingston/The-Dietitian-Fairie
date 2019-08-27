@@ -2,8 +2,8 @@ import { Page } from 'tns-core-modules/ui/page/page';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { TextField } from 'tns-core-modules/ui/text-field/text-field';
-import { AnimationCurve } from 'tns-core-modules/ui/enums/enums';
 import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+
 @Component({
     selector: 'ns-bmi',
     templateUrl: './bmi.component.html',
@@ -24,7 +24,7 @@ export class BmiComponent implements OnInit {
     @ViewChild("weightField", { static: false }) weightField: ElementRef;
     @ViewChild("heightFtField", { static: false }) heightFtField: ElementRef;
     @ViewChild("heightInField", { static: false }) heightInField: ElementRef;
-    @ViewChild("fairy", { static: false }) fairy: ElementRef;
+
     constructor(public router: RouterExtensions, private page: Page) {
         this.page.actionBarHidden = false;
     }
@@ -73,15 +73,9 @@ export class BmiComponent implements OnInit {
         if (this.heightFt && this.weight && this.currentTabView == 'standard') {
             let heightInInches: number = (Number(this.heightFt) * 12) + Number(this.heightIn ? this.heightIn : 0);
             let bmi = (703 * Number(this.weight)) / (heightInInches * heightInInches)
-            if (bmi > 0) {
-                this.dropTapEllieFly();
-            }
             this.bmi = bmi.toFixed(1);
         } else if (this.heightCm && this.weightKg && this.currentTabView == 'metric') {
             let bmi = Number(this.weightKg) / (this.heightCm * this.heightCm)
-            if (bmi > 0) {
-                this.dropTapEllieFly();
-            }
             this.bmi = bmi.toFixed(1);
         } else {
             this.bmi = '0';
@@ -104,54 +98,5 @@ export class BmiComponent implements OnInit {
             this.category = 'Obese Class II'
         }
     }
-    dropTapEllieFly() {
-        this.fairy.nativeElement.animate({
-            //opacity: .9,
-            //backgroundColor: new Color("Blue"),
-            translate: { x: -75, y: 35 },
-            //scale: { x: 2, y: 2 },
-            rotate: 380,
-            duration: 800,
-            //delay: 20,
-            //iterations: 5,
-            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
-            this.fairy.nativeElement.animate({
-                //opacity: .9,
-                //backgroundColor: new Color("Blue"),
-                translate: { x: -75, y: -105 },
-                //scale: { x: 2, y: 2 },
-                rotate: 30,
-                duration: 500,
-                //delay: 20,
-                //iterations: 5,
-                curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-            })
-        })
-    }
-    backFlipEllieFly() {
-        this.fairy.nativeElement.animate({
-            //opacity: .9,
-            //backgroundColor: new Color("Blue"),
-            translate: { x: -100, y: 0 },
-            //scale: { x: 2, y: 2 },
-            rotate: -380,
-            duration: 2000,
-            //delay: 20,
-            //iterations: 5,
-            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
-            this.fairy.nativeElement.animate({
-                //opacity: .9,
-                //backgroundColor: new Color("Blue"),
-                translate: { x: 0, y: -30 },
-                //scale: { x: 2, y: 2 },
-                rotate: 20,
-                duration: 2000,
-                //delay: 20,
-                //iterations: 5,
-                curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-            })
-        })
-    }
+
 }

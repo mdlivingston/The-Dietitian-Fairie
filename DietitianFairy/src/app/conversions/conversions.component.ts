@@ -19,7 +19,7 @@ export class ConversionsComponent implements OnInit {
 
     focus = 0;
 
-    @ViewChild("fairy", { static: false }) fairy: ElementRef;
+
     constructor(public router: RouterExtensions) { }
 
     ngOnInit() {
@@ -40,7 +40,6 @@ export class ConversionsComponent implements OnInit {
                 this.inches = null
             }
         }
-        this.dropTapEllieFly()
     }
 
     cmMeterChange(args, switcher) {
@@ -61,7 +60,7 @@ export class ConversionsComponent implements OnInit {
                 this.meter = null
             }
         }
-        this.dropTapEllieFly()
+
     }
 
     kgPoundChange(args, switcher) {
@@ -80,7 +79,6 @@ export class ConversionsComponent implements OnInit {
                 this.kg = null
             }
         }
-        this.dropTapEllieFly()
     }
     tempChange(args, switcher) {
         let textField = <TextField>args.object;
@@ -98,57 +96,7 @@ export class ConversionsComponent implements OnInit {
                 this.faren = null
             }
         }
-        this.dropTapEllieFly()
-    }
-    pageSlideEllieFly() {
-        this.fairy.nativeElement.animate({
-            //opacity: .9,
-            //backgroundColor: new Color("Blue"),
-            translate: { x: 0, y: 20 },
-            //scale: { x: 2, y: 2 },
-            rotate: 0,
-            duration: 1000,
-            //delay: 20,
-            //iterations: 5,
-            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
-            this.fairy.nativeElement.animate({
-                //opacity: .9,
-                //backgroundColor: new Color("Blue"),
-                translate: { x: -1000, y: 0 },
-                //scale: { x: 2, y: 2 },
-                rotate: 30,
-                duration: 400,
-                //delay: 20,
-                //iterations: 5,
-                curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-            })
-        })
 
     }
-    dropTapEllieFly() {
-        this.fairy.nativeElement.animate({
-            //opacity: .9,
-            //backgroundColor: new Color("Blue"),
-            translate: { x: 100, y: 150 },
-            //scale: { x: 2, y: 2 },
-            rotate: 380,
-            duration: 1000,
-            //delay: 20,
-            //iterations: 5,
-            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
-            this.fairy.nativeElement.animate({
-                //opacity: .9,
-                //backgroundColor: new Color("Blue"),
-                translate: { x: 100, y: 1000 },
-                //scale: { x: 2, y: 2 },
-                rotate: 30,
-                duration: 4000,
-                //delay: 20,
-                //iterations: 5,
-                curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-            })
-        })
-    }
+
 }

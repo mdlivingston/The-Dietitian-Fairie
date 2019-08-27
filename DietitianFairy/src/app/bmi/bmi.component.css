@@ -1,6 +1,6 @@
 /* Add mobile styles for the component here.  */
 .input-field {
-  margin-bottom: 25;
+  margin-bottom: 15;
   color: black;
   padding: 10 10 10 10;
 }
@@ -12,7 +12,7 @@
 
 .answer-text {
   color: black;
-  font-size: 24;
+  font-size: 18;
 }
 .fairy {
   transform: translateY(-100) translateX(-100);

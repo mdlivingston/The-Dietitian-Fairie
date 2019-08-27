@@ -42,13 +42,13 @@ export class HomeComponent implements OnInit {
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideLeft', duration: 700 } });
             }, 100);
         } else if (page == '/mifflin') {
-            this.floatDownEllieFly(400)
+            this.floatDownEllieFly(380)
             setTimeout(() => {
                 this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
             }, 900);
         } else if (page == '/benedict') {
-            this.floatDownEllieFly(600)
+            this.floatDownEllieFly(580)
             setTimeout(() => {
                 this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });

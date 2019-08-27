@@ -5,17 +5,19 @@
 </ActionBar>
 
 
-<GridLayout columns="*,*" rows="60, 60, 60, 120, 120, auto" #overlay class="overlay">
-    <Image #fairy row="0" class="fairy" colSpan="2" margin="10" height="75" width="75" src="{{'~/images/fairy.png'}}">
-    </Image>
+<GridLayout columns="*,*" rows="60, 35, 35, 100, 100, auto" #overlay class="overlay">
     <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="2" [items]="tabItems"
         (selectedIndexChange)="onTabChange($event)">
     </SegmentedBar>
     <StackLayout colSpan="2" row="1" class="middle">
-        <Label class="answer-text text-center" [text]="bmi" textWrap="true" marginBottom="25"></Label>
+        <Label class="answer-text text-center" [text]="bmi" textWrap="true" ></Label>
     </StackLayout>
     <StackLayout colSpan="2" row="2" class="middle">
-        <Label class="answer-text text-center" [text]="category" textWrap="true" marginBottom="25"></Label>
+        <Label class="answer-text text-center" textWrap="true" >
+            <FormattedString>
+                <Span [text]="category" fontAttributes="Italic"></Span>
+              </FormattedString>
+        </Label>
     </StackLayout>
     <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" colSpan="2" row="3"
         class="center middle input-field ">
@@ -23,7 +25,7 @@
             class="input">
         </TextField>
         <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true" marginBottom="25"></Label>
+        <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true" ></Label>
 
     </StackLayout>
 
@@ -33,7 +35,7 @@
             class="input">
         </TextField>
         <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Height (ft)" textWrap="true" marginBottom="25"></Label>
+        <Label class="h3 text-center font-black" text="Height (ft)" textWrap="true" ></Label>
     </StackLayout>
     <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="1" row="4"
         class="center middle input-field ">
@@ -41,7 +43,7 @@
             class="input">
         </TextField>
         <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Height (inches)" textWrap="true" marginBottom="25"></Label>
+        <Label class="h3 text-center font-black" text="Height (inches)" textWrap="true" ></Label>
     </StackLayout>
 
     <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" colSpan="2" row="3"
@@ -49,14 +51,14 @@
         <TextField keyboardType="number" autocorrect="false" (textChange)="onWeightKgChange($event)" class="input">
         </TextField>
         <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true" marginBottom="25"></Label>
+        <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true" ></Label>
     </StackLayout>
     <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" colSpan="2" row="4"
         class="center middle input-field ">
         <TextField keyboardType="number" autocorrect="false" (textChange)="onHeightCmChange($event)" class="input">
         </TextField>
         <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Height (meters)" textWrap="true" marginBottom="25"></Label>
+        <Label class="h3 text-center font-black" text="Height (meters)" textWrap="true" ></Label>
     </StackLayout>
 
 
