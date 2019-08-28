@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
             setTimeout(() => {
                 this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
-            }, 900);
+            }, 850);
         } else if (page == '/benedict') {
             this.floatDownEllieFly(580)
             setTimeout(() => {

@@ -51,7 +51,36 @@ components that have the btn class name.
   color: white;
   font-size: 35;
 }
+.modal-overlay {
+  background-color: #858483;
+  opacity: 0;
+}
 
+.select-factor {
+  background-color: #ffffff;
+  margin: 0 24;
+  border-radius: 10;
+  opacity: 0;
+}
+.title-select-factor {
+  padding: 16 0 4 0;
+  text-align: center;
+  color: #000000;
+  font-weight: 500;
+}
+.btn-cancel {
+  background-color: #858483;
+  color: #ffffff;
+  padding: 10 15;
+  font-weight: bold;
+}
+
+.btn-okay {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10 15;
+  font-weight: bold;
+}
 .btn-primary {
   height: 50;
   background-color: white;

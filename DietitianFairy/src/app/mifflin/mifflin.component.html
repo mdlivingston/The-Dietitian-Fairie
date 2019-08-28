@@ -1,62 +1,96 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" fontSize="22" text="Mifflin"></Label>
-    <NavigationButton text="" (tap)="router.back()" android.systemIcon="ic_menu_back">
-    </NavigationButton>
+  <Label class="action-bar-title" fontSize="22" text="Mifflin"></Label>
+  <NavigationButton text="" (tap)="router.back()" android.systemIcon="ic_menu_back">
+  </NavigationButton>
 </ActionBar>
 
+<GridLayout columns="*,*,*" rows="60, auto, auto, auto, *" #overlay class="overlay">
+  <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
+    (selectedIndexChange)="onTabChange($event)">
+  </SegmentedBar>
 
-<GridLayout columns="*,*,*" rows="60, 100, 160, auto" #overlay class="overlay">
-    <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
-        (selectedIndexChange)="onTabChange($event)">
-    </SegmentedBar>
+  <GridLayout colSpan="3" row="1" rows="*,*" columns="*,*">
+    <StackLayout col="0" row="0" class="middle">
+      <Label class="answer-text text-center" [text]="'Male' " textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="0" class="middle">
+      <Label class="answer-text text-center" [text]="answerMale.toFixed(2)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="0" row="1" class="middle">
+      <Label class="answer-text text-center" [text]="'Female' " textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="1" class="middle">
+      <Label class="answer-text text-center" [text]="answerFemale.toFixed(2)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+  </GridLayout>
 
-    <StackLayout colSpan="3" row="1" class="middle">
-        <Label class="answer-text text-center"
-            [text]="'Male: ' + answerMale.toFixed(2) + '    ' + 'Female: ' + answerFemale.toFixed(2)" textWrap="true"
-            marginBottom="25"></Label>
+  <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="0" row="2"
+    class="center middle input-field ">
+    <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
+      class="input">
+    </TextField>
+    <StackLayout class="hr-light"></StackLayout>
+    <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true" marginBottom="25"></Label>
+  </StackLayout>
+  <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="0" row="2"
+    class="center middle input-field ">
+    <TextField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)" class="input">
+    </TextField>
+    <StackLayout class="hr-light"></StackLayout>
+    <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true" marginBottom="25"></Label>
+  </StackLayout>
+  <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="1" row="2"
+    class="center middle input-field ">
+    <TextField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)" class="input">
+    </TextField>
+    <StackLayout class="hr-light"></StackLayout>
+    <Label class="h3 text-center font-black" text="Height (in)" textWrap="true" marginBottom="25"></Label>
+  </StackLayout>
+  <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="1" row="2"
+    class="center middle input-field ">
+    <TextField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)" class="input">
+    </TextField>
+    <StackLayout class="hr-light"></StackLayout>
+    <Label class="h3 text-center font-black" text="Height (cm)" textWrap="true" marginBottom="25"></Label>
+  </StackLayout>
+  <StackLayout col="2" row="2" class="center middle input-field ">
+    <TextField keyboardType="number" autocorrect="false" (textChange)="onAgeChange($event)" class="input">
+    </TextField>
+    <StackLayout class="hr-light"></StackLayout>
+    <Label class="h3 text-center font-black" text="Age (years)" textWrap="true" marginBottom="25"></Label>
+  </StackLayout>
+  <GridLayout row="3" colSpan="3" rows="*" columns="*,*">
+    <StackLayout col="0" class="center middle input-field ">
+      <TextField #factorField keyboardType="number" (tap)="onOpenSelectFactor()" [(ngModel)]="selectedFactor"
+        autocorrect="false" class="input">
+      </TextField>
+      <StackLayout class="hr-light"></StackLayout>
+      <Label class="h3 text-center font-black" text="Activity Factor" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="1" class="center middle input-field ">
+      <TextField keyboardType="number" (textChange)="onTempChange($event)" [(ngModel)]="selectedFeverFactor"
+        autocorrect="false" class="input">
+      </TextField>
+      <StackLayout class="hr-light"></StackLayout>
+      <Label class="h3 text-center font-black" text="Fever Factor (°F)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+  </GridLayout>
+
+  <Button colSpan="3" row="4" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory="true" pageTransition="flipLeft"
+    class="btn btn-primary top"></Button>
+
+  <GridLayout rowSpan="5" colSpan="3" class="modal-overlay" id="overlayGridLayout">
+  </GridLayout>
+  <GridLayout rowSpan="5" colSpan="3" rows="auto, auto, auto" columns="*,*" verticalAlignment="center"
+    class="select-factor" id="selectDateGridLayout">
+    <Label row="0" col="0" colSpan="2" text="Activity Factors" class="title-select-factor"></Label>
+    <StackLayout class="scroll" row="1" colSpan="2">
+      <ListPicker class="font-black" [items]="factorList" selectedIndex="{{ factorIndex }}"
+        (selectedIndexChange)="selectedIndexChangedFactor($event)">
+      </ListPicker>
     </StackLayout>
 
-    <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="0" row="2"
-        class="center middle input-field ">
-        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
-            class="input">
-        </TextField>
-        <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true" marginBottom="25"></Label>
-
-    </StackLayout>
-    <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="0" row="2"
-        class="center middle input-field ">
-        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
-            class="input">
-        </TextField>
-        <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true" marginBottom="25"></Label>
-    </StackLayout>
-    <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="1" row="2"
-        class="center middle input-field ">
-        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)"
-            class="input">
-        </TextField>
-        <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Height (in)" textWrap="true" marginBottom="25"></Label>
-    </StackLayout>
-    <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="1" row="2"
-        class="center middle input-field ">
-        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)"
-            class="input">
-        </TextField>
-        <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Height (cm)" textWrap="true" marginBottom="25"></Label>
-    </StackLayout>
-    <StackLayout col="2" row="2" class="center middle input-field ">
-        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onAgeChange($event)"
-            class="input">
-        </TextField>
-        <StackLayout class="hr-light"></StackLayout>
-        <Label class="h3 text-center font-black" text="Age (years)" textWrap="true" marginBottom="25"></Label>
-    </StackLayout>
-    <Button colSpan="3" row="3" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory=true pageTransition="flipLeft"
-        class="btn btn-primary m-t-20"></Button>
-
+    <Button row="2" col="0" text="Cancel" class="btn-cancel" (tap)="onCloseSelectFactor(true)"></Button>
+    <Button row="2" col="1" text="OK" class="btn-okay" (tap)="onCloseSelectFactor(false)"></Button>
+  </GridLayout>
 </GridLayout>

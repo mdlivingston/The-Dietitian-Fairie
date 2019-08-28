@@ -1,13 +1,16 @@
-import { Page } from 'tns-core-modules/ui/page/page';
-import { RouterExtensions } from 'nativescript-angular/router';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { TextField } from 'tns-core-modules/ui/text-field/text-field';
-import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
+import { Page } from "tns-core-modules/ui/page/page";
+import { RouterExtensions } from "nativescript-angular/router";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { TextField } from "tns-core-modules/ui/text-field/text-field";
+import {
+    SegmentedBar,
+    SegmentedBarItem
+} from "tns-core-modules/ui/segmented-bar";
 
 @Component({
-    selector: 'ns-bmi',
-    templateUrl: './bmi.component.html',
-    styleUrls: ['./bmi.component.css']
+    selector: "ns-bmi",
+    templateUrl: "./bmi.component.html",
+    styleUrls: ["./bmi.component.css"]
 })
 export class BmiComponent implements OnInit {
     weight: number;
@@ -16,11 +19,11 @@ export class BmiComponent implements OnInit {
     heightFt: number;
     heightCm: number;
 
-    bmi: string = '0';
-    category = '';
-    currentTabView = 'standard'
+    bmi: string = "0";
+    category = "";
+    currentTabView = "standard";
     tabItems: Array<SegmentedBarItem> = [];
-    @ViewChild('overlay', { static: false }) overlay: ElementRef;
+    @ViewChild("overlay", { static: false }) overlay: ElementRef;
     @ViewChild("weightField", { static: false }) weightField: ElementRef;
     @ViewChild("heightFtField", { static: false }) heightFtField: ElementRef;
     @ViewChild("heightInField", { static: false }) heightInField: ElementRef;
@@ -38,11 +41,16 @@ export class BmiComponent implements OnInit {
 
         this.tabItems.push(segmentedBarItem);
         this.getCategory();
-
+        setTimeout(() => {
+            let textField: TextField = this.weightField.nativeElement;
+            textField.focus();
+        }, 500);
     }
     onTabChange(args) {
         let segmentedBar = <SegmentedBar>args.object;
-        segmentedBar.selectedIndex == 0 ? this.currentTabView = 'standard' : this.currentTabView = 'metric';
+        segmentedBar.selectedIndex == 0
+            ? (this.currentTabView = "standard")
+            : (this.currentTabView = "metric");
     }
     onWeightChange(args) {
         let textField = <TextField>args.object;
@@ -70,33 +78,39 @@ export class BmiComponent implements OnInit {
         this.calculateBMI();
     }
     calculateBMI() {
-        if (this.heightFt && this.weight && this.currentTabView == 'standard') {
-            let heightInInches: number = (Number(this.heightFt) * 12) + Number(this.heightIn ? this.heightIn : 0);
-            let bmi = (703 * Number(this.weight)) / (heightInInches * heightInInches)
+        if (this.heightFt && this.weight && this.currentTabView == "standard") {
+            let heightInInches: number =
+                Number(this.heightFt) * 12 +
+                Number(this.heightIn ? this.heightIn : 0);
+            let bmi =
+                (703 * Number(this.weight)) / (heightInInches * heightInInches);
             this.bmi = bmi.toFixed(1);
-        } else if (this.heightCm && this.weightKg && this.currentTabView == 'metric') {
-            let bmi = Number(this.weightKg) / (this.heightCm * this.heightCm)
+        } else if (
+            this.heightCm &&
+            this.weightKg &&
+            this.currentTabView == "metric"
+        ) {
+            let bmi = Number(this.weightKg) / (this.heightCm * this.heightCm);
             this.bmi = bmi.toFixed(1);
         } else {
-            this.bmi = '0';
+            this.bmi = "0";
         }
 
         this.getCategory();
     }
     getCategory() {
         if (Number(this.bmi) < 18.5) {
-            this.category = 'Underweight';
+            this.category = "Underweight";
         } else if (Number(this.bmi) >= 18.5 && Number(this.bmi) <= 24.9) {
-            this.category = 'Normal';
+            this.category = "Normal";
         } else if (Number(this.bmi) >= 25 && Number(this.bmi) <= 29.9) {
-            this.category = 'Overweight';
+            this.category = "Overweight";
         } else if (Number(this.bmi) >= 30.0 && Number(this.bmi) <= 34.9) {
-            this.category = 'Obese Class I';
+            this.category = "Obese Class I";
         } else if (Number(this.bmi) >= 35.0 && Number(this.bmi) <= 29.9) {
-            this.category = 'Obese Class II';
+            this.category = "Obese Class II";
         } else {
-            this.category = 'Obese Class II'
+            this.category = "Obese Class II";
         }
     }
-
 }
