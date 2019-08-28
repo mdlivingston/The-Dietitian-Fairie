@@ -37,4 +37,10 @@ export class DataService {
         }
         return 66.47 + (13.75 * weight) + (5 * height) - (4.68 * height);
     }
+    pennB(mifflin, temp, liter) {
+        return (mifflin * 0.96) + (liter * 31) + (temp * 167) - 6212;
+    }
+    penn(mifflin, temp, liter) {
+        return (mifflin * 0.71) + (liter * 64) + (temp * 85) - 3085;
+    }
 }

@@ -4,6 +4,73 @@
     </NavigationButton>
 </ActionBar>
 
-<StackLayout class="middle">
-        <Label class="answer-text text-center" [text]="'Coming Soon!'" marginBottom="25"></Label>
+<GridLayout columns="*,*,*" rows="60, auto, auto, auto, *" #overlay class="overlay">
+    <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
+        (selectedIndexChange)="onTabChange($event)">
+    </SegmentedBar>
+
+    <GridLayout colSpan="3" row="1" rows="*" columns="*,*">
+        <StackLayout col="0" row="0" class="middle">
+            <Label class="answer-text text-center" [text]="'RMR' " textWrap="true" marginBottom="25"></Label>
+        </StackLayout>
+        <StackLayout col="1" row="0" class="middle">
+            <Label class="answer-text text-center" [text]="rmr.toFixed(2)" textWrap="true" marginBottom="25"></Label>
+        </StackLayout>
+    </GridLayout>
+
+    <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="0" row="2"
+        class="center middle input-field ">
+        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
+            class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true" marginBottom="25"></Label>
     </StackLayout>
+    <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="0" row="2"
+        class="center middle input-field ">
+        <TextField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="1" row="2"
+        class="center middle input-field ">
+        <TextField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Height (in)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}" col="1" row="2"
+        class="center middle input-field ">
+        <TextField keyboardType="number" autocorrect="false" (textChange)="onHeightChange($event)" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Height (cm)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="2" class="center middle input-field ">
+        <TextField keyboardType="number" autocorrect="false" (textChange)="onAgeChange($event)" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Age (years)" textWrap="true" marginBottom="25"></Label>
+    </StackLayout>
+    <GridLayout row="3" colSpan="3" rows="*" columns="*,*">
+        <StackLayout col="0" class="center middle input-field ">
+            <TextField #factorField keyboardType="number" (textChange)="onLiterChange($event)" [(ngModel)]="liters"
+                autocorrect="false" class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Ve (liters per minute)" textWrap="true"
+                marginBottom="25"></Label>
+        </StackLayout>
+        <StackLayout col="1" class="center middle input-field ">
+            <TextField keyboardType="number" (textChange)="onTempChange($event)" [(ngModel)]="tmax" autocorrect="false"
+                class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Tmax (°C)" textWrap="true" marginBottom="25"></Label>
+        </StackLayout>
+    </GridLayout>
+
+    <Button colSpan="3" row="4" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory="true"
+        pageTransition="flipLeft" class="btn btn-primary top"></Button>
+</GridLayout>

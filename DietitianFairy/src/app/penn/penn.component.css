@@ -1,1 +1,25 @@
-/* Add mobile styles for the component here.  */
+.input-field {
+  /* margin-bottom: 25; */
+  color: black;
+  padding: 0 10;
+  /* padding: 10 10 10 10; */
+}
+.input {
+  font-size: 19;
+  placeholder-color: #a8a8a8;
+  color: black;
+}
+
+.answer-text {
+  color: black;
+  font-size: 24;
+  border-color: #000;
+  border-width: 0.5;
+}
+.fairy {
+  transform: translateX(-200);
+}
+.tab-bar {
+  width: 250;
+  margin-top: 10;
+}

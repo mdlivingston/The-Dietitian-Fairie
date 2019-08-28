@@ -19,10 +19,15 @@ export class ConversionsComponent implements OnInit {
 
     focus = 0;
 
-
+    @ViewChild('inchField', { static: false }) inchField;
     constructor(public router: RouterExtensions) { }
 
     ngOnInit() {
+
+        setTimeout(() => {
+            let textField: TextField = this.inchField.nativeElement;
+            textField.focus();
+        }, 500);
     }
     cmInchChange(args, switcher) {
         let textField = <TextField>args.object;
