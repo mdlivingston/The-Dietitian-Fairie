@@ -109,11 +109,46 @@ components that have the btn class name.
   margin-left: 15;
 }
 
+.answer-text {
+  color: black;
+  font-size: 24;
+  border-color: darkgray;
+  border-bottom-width: 1.5;
+  border-left-width: 0.5;
+  border-right-width: 0.5;
+  border-top-width: 0.25;
+  border-radius: 15;
+  width: 95%;
+}
+.input-field {
+  /* margin-bottom: 25; */
+  color: black;
+  padding: 0 10;
+  margin-bottom: 10;
+  border-color: darkgray;
+  border-bottom-width: 1.5;
+  border-left-width: 0.5;
+  border-right-width: 0.5;
+  border-top-width: 0.25;
+  border-radius: 15;
+  vertical-align: middle;
+  /* padding: 10 10 10 10; */
+}
+.input {
+  font-size: 19;
+  placeholder-color: #a8a8a8;
+  color: black;
+  padding-top: 5;
+}
+
 .header {
   font-family: "Nunito";
   font-size: 21;
 }
 
+.overlay {
+  width: 98%;
+}
 .gray {
   background-color: #f2f2f2;
 }

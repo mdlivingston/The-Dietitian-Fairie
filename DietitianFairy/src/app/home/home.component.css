@@ -15,9 +15,15 @@
 }
 
 .bmi-card {
-  border-color: black;
-  border-bottom-width: 0.5;
+  border-color: rgba(226, 152, 216, 0.7);
+  border-bottom-width: 1.5;
+  border-left-width: 0.5;
+  border-right-width: 0.5;
+  border-top-width: 0.25;
+  border-radius: 15;
+  margin-bottom: 15;
 }
 .fairy {
   transform: translateY(-100);
+  z-index: 1;
 }

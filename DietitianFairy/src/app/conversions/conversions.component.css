@@ -1,18 +1,3 @@
-.input-field {
-  color: black;
-  padding: 10 10 0 10;
-}
-.input {
-  font-size: 19;
-  width: 100%;
-  placeholder-color: #a8a8a8;
-  color: black;
-}
-
-.answer-text {
-  color: black;
-  font-size: 24;
-}
 .fairy {
   transform: translateY(1000) translateX(-100);
 }
