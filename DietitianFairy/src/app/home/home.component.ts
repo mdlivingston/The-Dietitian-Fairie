@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
             setTimeout(() => {
                 //this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideTop', duration: 0 } });
-            }, 1700);
+            }, 800);
         }
 
 
@@ -213,10 +213,10 @@ export class HomeComponent implements OnInit {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
-            translate: { x: 0, y: 1500 },
+            translate: { x: 0, y: 1200 },
             //scale: { x: 2, y: 2 },
             rotate: 360,
-            duration: 1000,
+            duration: 800,
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
@@ -227,7 +227,7 @@ export class HomeComponent implements OnInit {
                 translate: { x: 0, y: 0 },
                 //scale: { x: 2, y: 2 },
                 rotate: -90,
-                duration: 3000,
+                duration: 1000,
                 //delay: 20,
                 //iterations: 5,
                 curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)

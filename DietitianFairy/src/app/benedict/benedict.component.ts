@@ -9,6 +9,7 @@ import {
 import { ListPicker } from "tns-core-modules/ui/list-picker/list-picker";
 import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
 import { Page } from "tns-core-modules/ui/page/page";
+import { AnimationCurve } from "tns-core-modules/ui/enums/enums";
 
 @Component({
     selector: "ns-benedict",
@@ -118,13 +119,33 @@ export class BenedictComponent implements OnInit {
         let textField: TextField = this.factorField.nativeElement;
         textField.dismissSoftInput();
         this._overlayGridLayout.animate({ opacity: 0.5, duration: 300 });
-        this._selectDateGridLayout.animate({ opacity: 1, duration: 400 });
+        this._selectDateGridLayout.animate({
+            //opacity: 1,
+            //backgroundColor: new Color("Blue"),
+            translate: { x: 0, y: 0 },
+            //scale: { x: 2, y: 2 },
+            rotate: 0,
+            duration: 500,
+            //delay: 20,
+            //iterations: 5,
+            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+        })
     }
 
     onCloseSelectFactor(isCancel: boolean) {
         this.calculateMifflin();
         this._overlayGridLayout.animate({ opacity: 0, duration: 400 });
-        this._selectDateGridLayout.animate({ opacity: 0, duration: 300 });
+        this._selectDateGridLayout.animate({
+            //opacity: 1,
+            //backgroundColor: new Color("Blue"),
+            translate: { x: 500, y: 0 },
+            //scale: { x: 2, y: 2 },
+            rotate: 196,
+            duration: 500,
+            //delay: 20,
+            //iterations: 5,
+            curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
+        })
     }
     selectedIndexChangedFactor(args) {
         let picker = <ListPicker>args.object;

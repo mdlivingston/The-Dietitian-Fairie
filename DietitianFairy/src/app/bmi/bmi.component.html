@@ -6,8 +6,8 @@
 
 
 <GridLayout columns="*,*" rows="60, 35, 35, 75, 75, auto" #overlay class="overlay">
-    <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="2" [items]="tabItems"
-        (selectedIndexChange)="onTabChange($event)">
+    <SegmentedBar selectedBackgroundColor="rgba(226, 152, 216, 1)" class="tab-bar top" row="0" colSpan="2"
+        [items]="tabItems" (selectedIndexChange)="onTabChange($event)">
     </SegmentedBar>
     <StackLayout colSpan="2" row="1" class="middle">
         <Label class="text-center" fontSize="28" [text]="bmi" textWrap="true"></Label>

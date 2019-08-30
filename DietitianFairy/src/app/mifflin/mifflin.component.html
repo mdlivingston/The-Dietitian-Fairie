@@ -5,7 +5,7 @@
 </ActionBar>
 
 <GridLayout columns="*,*,*" rows="60, auto, auto, auto, *" #overlay class="overlay">
-  <SegmentedBar selectedBackgroundColor="#696868" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
+  <SegmentedBar selectedBackgroundColor="rgb(180,138,253)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
     (selectedIndexChange)="onTabChange($event)">
   </SegmentedBar>
 
@@ -25,7 +25,7 @@
   </GridLayout>
 
   <StackLayout visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" col="0" row="2"
-    class="center middle input-field ">
+    class="center middle input-field">
     <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onWeightChange($event)"
       class="input">
     </TextField>
