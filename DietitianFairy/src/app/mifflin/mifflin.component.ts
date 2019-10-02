@@ -162,30 +162,32 @@ export class MifflinComponent implements OnInit {
         this.selectedFactor = this.factorList[picker.selectedIndex];
     }
     calculateMifflin() {
+        this.answerMale = 0;
+        this.answerFemale = 0;
         if (this.age && this.weight && this.height) {
             if (this.currentTabView == "standard") {
                 this.answerMale = this.dataService.mifflin(
-                    this.weight,
-                    this.height,
+                    this.weight * 0.45359237,
+                    this.height * 2.54,
                     this.age,
                     1
                 );
                 this.answerFemale = this.dataService.mifflin(
-                    this.weight,
-                    this.height,
+                    this.weight * 0.45359237,
+                    this.height * 2.54,
                     this.age,
                     0
                 );
             } else {
                 this.answerMale = this.dataService.mifflin(
-                    this.weight * 2.2,
-                    this.height * 2.54,
+                    this.weight,
+                    this.height,
                     this.age,
                     1
                 );
                 this.answerFemale = this.dataService.mifflin(
-                    this.weight * 2.2,
-                    this.height * 2.54,
+                    this.weight,
+                    this.height,
                     this.age,
                     0
                 );

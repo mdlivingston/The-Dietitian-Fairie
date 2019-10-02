@@ -154,6 +154,8 @@ export class BenedictComponent implements OnInit {
     }
 
     calculateMifflin() {
+        this.answerMale = 0;
+        this.answerFemale = 0;
         if (this.age && this.weight && this.height) {
             if (this.currentTabView == "metric") {
                 this.answerFemale = this.dataService.harris(
@@ -164,7 +166,7 @@ export class BenedictComponent implements OnInit {
                 );
             } else {
                 this.answerFemale = this.dataService.harris(
-                    this.weight * 2.2,
+                    this.weight * 0.45359237,
                     this.height * 2.54,
                     this.age,
                     0
@@ -185,8 +187,8 @@ export class BenedictComponent implements OnInit {
                     1
                 );
             } else {
-                this.answerMale = this.dataService.harris(
-                    this.weight * 2.2,
+                this.answerMale = this.dataService.mifflin(
+                    this.weight * 0.45359237,
                     this.height * 2.54,
                     this.age,
                     1

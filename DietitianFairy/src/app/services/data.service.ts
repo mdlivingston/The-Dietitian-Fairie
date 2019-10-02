@@ -27,7 +27,7 @@ export class DataService {
         const h = 6.25 * height;
         const a = 5 * age;
         if (gender == 0) {
-            return w + h - a - 161;
+            return (9.99 * weight) + (6.25 * height) - 5 * age - 161;
         }
         return w + h - a + 5;
     }
@@ -35,7 +35,7 @@ export class DataService {
         if (gender == 0) {
             return 665.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
         }
-        return 66.47 + (13.75 * weight) + (5 * height) - (4.68 * height);
+        return 66.47 + (13.75 * weight) + (5 * height) - (4.68 * age);
     }
     pennB(mifflin, temp, liter) {
         return (mifflin * 0.96) + (liter * 31) + (temp * 167) - 6212;
