@@ -83,16 +83,16 @@ export class PennBComponent implements OnInit {
         if (this.age && this.weight && this.height && this.liters && this.tmax) {
             if (this.currentTabView == "standard") {
                 this.rmr = this.dataService.mifflin(
-                    this.weight,
-                    this.height,
+                    this.weight * 0.45359237,
+                    this.height * 2.54,
                     this.age,
                     1
                 );
 
             } else {
                 this.rmr = this.dataService.mifflin(
-                    this.weight * 2.2,
-                    this.height * 2.54,
+                    this.weight,
+                    this.height,
                     this.age,
                     1
                 );
