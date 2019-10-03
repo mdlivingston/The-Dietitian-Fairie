@@ -178,7 +178,7 @@ export class BenedictComponent implements OnInit {
                 this.answerFemale *= ((this.selectedFeverFactor - 98.6) * 1.07)
             }
         }
-        if (this.weight && this.height) {
+        if (this.age && this.weight && this.height) {
             if (this.currentTabView == "metric") {
                 this.answerMale = this.dataService.harris(
                     this.weight,
@@ -187,7 +187,7 @@ export class BenedictComponent implements OnInit {
                     1
                 );
             } else {
-                this.answerMale = this.dataService.mifflin(
+                this.answerMale = this.dataService.harris(
                     this.weight * 0.45359237,
                     this.height * 2.54,
                     this.age,
