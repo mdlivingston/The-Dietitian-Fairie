@@ -6,7 +6,7 @@
 
 
 <GridLayout columns="*,*,*" rows="60, auto, auto, auto, *" #overlay class="overlay">
-    <SegmentedBar selectedBackgroundColor="rgb(252,185,179)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
+    <SegmentedBar backgroundColor="rgb(252,185,179)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
         (selectedIndexChange)="onTabChange($event)">
     </SegmentedBar>
 

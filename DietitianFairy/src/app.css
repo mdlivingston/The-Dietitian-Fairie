@@ -163,6 +163,7 @@ components that have the btn class name.
 }
 .fairy-font {
   font-family: "Bellefair", serif;
+  color: black;
 }
 
 .action-bar {

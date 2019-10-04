@@ -12,13 +12,14 @@
 
         <StackLayout class="bmi-card" elevation="'5'" (tap)="goToPage('/bmi')" width="95%" height="30%" padding="12">
             <Label text="Calculate BMI" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="BMI = (weight in kilograms)/(height in meters^2)" fontSize="14" textWrap="true"></Label>
+            <Label class="font-black" text="BMI = (weight in kilograms)/(height in meters^2)" fontSize="14"
+                textWrap="true"></Label>
         </StackLayout>
 
         <StackLayout class="bmi-card" (tap)="goToPage('/conversions')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Common Conversions" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="1 inch = 2.54 centimeters
+            <Label class="font-black" text="1 inch = 2.54 centimeters
 1 meter = 100 centimeters
 1 kilogram = 2.2 pounds
 Fahrenheit to Celsius (X°F − 32) × 5/9 = X°C" fontSize="14" textWrap="true">
@@ -28,7 +29,7 @@ Fahrenheit to Celsius (X°F − 32) × 5/9 = X°C" fontSize="14" textWrap="true"
         <StackLayout class="bmi-card " (tap)="goToPage('/mifflin')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Mifflin St. Jeor" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="Males = (9.99 * weight) + (6.25 * height) - (5 * age) + 5
+            <Label class="font-black" text="Males = (9.99 * weight) + (6.25 * height) - (5 * age) + 5
 Females = (9.99 * weight) + (6.25 * height) - (5 * age) - 161" fontSize="14" textWrap="true">
             </Label>
         </StackLayout>
@@ -37,7 +38,7 @@ Females = (9.99 * weight) + (6.25 * height) - (5 * age) - 161" fontSize="14" tex
         <StackLayout class="bmi-card" (tap)="goToPage('/benedict')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Harris Benedict" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="Males = 66.47 + (13.75 * weight) + (5 * height) – (6.76 * age)
+            <Label class="font-black" text="Males = 66.47 + (13.75 * weight) + (5 * height) – (6.76 * age)
 Females = 655.1 + (9.56 * weight) + (1.85 * height) – (4.68 * age)" fontSize="14" textWrap="true">
             </Label>
         </StackLayout>
@@ -47,7 +48,7 @@ Females = 655.1 + (9.56 * weight) + (1.85 * height) – (4.68 * age)" fontSize="
         <StackLayout class="bmi-card" (tap)="goToPage('/penn-b')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Penn State 2003b Equation" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="RMR= (Mifflin * 0.96) + (Ve * 31) + (Tmax * 167) - 6212
+            <Label class="font-black" text="RMR= (Mifflin * 0.96) + (Ve * 31) + (Tmax * 167) - 6212
 Ve: minute ventilation (liters per minute) at the time of measurement / read from the ventilator
 Tmax: maximum body temp in the past 24 hours (degrees Celsius) " fontSize="14" textWrap="true">
             </Label>
@@ -58,7 +59,7 @@ Tmax: maximum body temp in the past 24 hours (degrees Celsius) " fontSize="14" t
         <StackLayout class="bmi-card" (tap)="goToPage('/penn')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Penn State 2010 Equation" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label text="RMR= (Mifflin * 0.71) + (Ve * 64) + (Tmax * 85) - 3085
+            <Label class="font-black" text="RMR= (Mifflin * 0.71) + (Ve * 64) + (Tmax * 85) - 3085
 
 Ve: minute ventilation (liters per minute) at the time of measurement / read from the ventilator
 Tmax: maximum body temp in the past 24 hours (°Celsius)
