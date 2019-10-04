@@ -78,7 +78,7 @@ export class BmiComponent implements OnInit {
         this.calculateBMI();
     }
     calculateBMI() {
-        if (this.heightIn && this.weight && this.currentTabView == "standard") {
+        if ((this.heightIn || this.heightFt) && this.weight && this.currentTabView == "standard") {
             let heightInInches: number =
                 Number(this.heightFt ? this.heightFt : 0) * 12 +
                 Number(this.heightIn ? this.heightIn : 0);
