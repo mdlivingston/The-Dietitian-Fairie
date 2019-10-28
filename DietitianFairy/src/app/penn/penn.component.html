@@ -9,12 +9,19 @@
         (selectedIndexChange)="onTabChange($event)">
     </SegmentedBar>
 
-    <GridLayout colSpan="3" row="1" rows="*" columns="*,*">
+    <GridLayout colSpan="3" row="1" rows="*,*" columns="*,*">
         <StackLayout col="0" row="0" class="middle">
-            <Label class="answer-text text-center" [text]="'RMR' " textWrap="true" marginBottom="25"></Label>
+            <Label class="answer-text text-center" [text]="'Male RMR' " textWrap="true" marginBottom="25"></Label>
         </StackLayout>
         <StackLayout col="1" row="0" class="middle">
             <Label class="answer-text text-center" [text]="rmr.toFixed(2)" textWrap="true" marginBottom="25"></Label>
+        </StackLayout>
+        <StackLayout col="0" row="1" class="middle">
+            <Label class="answer-text text-center" [text]="'Female RMR' " textWrap="true" marginBottom="25"></Label>
+        </StackLayout>
+        <StackLayout col="1" row="1" class="middle">
+            <Label class="answer-text text-center" [text]="rmrFemale.toFixed(2)" textWrap="true"
+                marginBottom="25"></Label>
         </StackLayout>
     </GridLayout>
 
@@ -67,7 +74,8 @@
                 class="input">
             </TextField>
             <StackLayout class="hr-light"></StackLayout>
-            <Label class="h3 text-center font-black" text="Tmax (°C)" textWrap="true"></Label>
+            <Label class="h3 text-center font-black" [text]="currentTabView == 'standard' ? 'Tmax (°F)' : 'Tmax (°C)'"
+                textWrap="true"></Label>
         </StackLayout>
     </GridLayout>
 

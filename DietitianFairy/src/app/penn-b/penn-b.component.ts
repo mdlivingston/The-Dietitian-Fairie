@@ -17,6 +17,7 @@ export class PennBComponent implements OnInit {
     liters: number;
     tmax: number;
     rmr: number = 0;
+    rmrFemale: number = 0;
 
     @ViewChild('factorField', { static: false }) factorField;
     @ViewChild('weightField', { static: false }) weightField;
@@ -82,6 +83,12 @@ export class PennBComponent implements OnInit {
     calculatePennB() {
         if (this.age && this.weight && this.height && this.liters && this.tmax) {
             if (this.currentTabView == "standard") {
+                this.rmrFemale = this.dataService.mifflin(
+                    this.weight * 0.45359237,
+                    this.height * 2.54,
+                    this.age,
+                    0
+                );
                 this.rmr = this.dataService.mifflin(
                     this.weight * 0.45359237,
                     this.height * 2.54,
@@ -90,6 +97,12 @@ export class PennBComponent implements OnInit {
                 );
 
             } else {
+                this.rmrFemale = this.dataService.mifflin(
+                    this.weight,
+                    this.height,
+                    this.age,
+                    0
+                );
                 this.rmr = this.dataService.mifflin(
                     this.weight,
                     this.height,
@@ -98,7 +111,8 @@ export class PennBComponent implements OnInit {
                 );
 
             }
-            this.rmr = this.dataService.pennB(this.rmr, this.tmax, this.liters);
+            const tempUnit = this.currentTabView == 'standard' ? (Number(this.tmax) - 32) / 1.8 : this.tmax;
+            this.rmr = this.dataService.pennB(this.rmr, tempUnit, this.liters);
         }
 
         // this.rmr *= this.selectedFactor;
