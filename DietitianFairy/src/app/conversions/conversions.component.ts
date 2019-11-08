@@ -16,6 +16,8 @@ export class ConversionsComponent implements OnInit {
     pounds: number;
     faren: number;
     cels: number;
+    ounces: number;
+    mills: number;
 
     focus = 0;
 
@@ -99,6 +101,26 @@ export class ConversionsComponent implements OnInit {
                 this.faren = Number(textField.text) * 1.8 + 32;
             } else {
                 this.faren = null
+            }
+        }
+
+    }
+
+    ozMilChange(args, switcher) {
+        let textField = <TextField>args.object;
+        if (this.focus == 0 && switcher == 0) {
+            if (textField.text) {
+                this.mills = Number(textField.text) / 0.033814;
+            } else {
+                this.mills = null;
+            }
+
+
+        } else if (this.focus == 1 && switcher == 1) {
+            if (textField.text) {
+                this.ounces = Number(textField.text) * 0.033814;
+            } else {
+                this.ounces = null;
             }
         }
 

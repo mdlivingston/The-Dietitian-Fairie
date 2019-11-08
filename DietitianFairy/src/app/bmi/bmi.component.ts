@@ -83,7 +83,7 @@ export class BmiComponent implements OnInit {
                 Number(this.heightFt ? this.heightFt : 0) * 12 +
                 Number(this.heightIn ? this.heightIn : 0);
             let bmi = (703 * Number(this.weight)) / (heightInInches * heightInInches);
-            this.bmi = bmi.toFixed(1);
+            this.bmi = bmi.toFixed(2);
         } else if (
             this.heightCm &&
             this.weightKg &&

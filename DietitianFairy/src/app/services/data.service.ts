@@ -35,7 +35,7 @@ export class DataService {
         if (gender == 0) {
             return 655.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
         }
-        return 66.47 + (13.75 * weight) + (5 * height) - (4.68 * age);
+        return 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age);
     }
     pennB(mifflin, temp, liter) {
         return (mifflin * 0.96) + (liter * 31) + (temp * 167) - 6212;

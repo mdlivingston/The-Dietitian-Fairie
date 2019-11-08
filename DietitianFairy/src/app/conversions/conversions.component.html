@@ -5,7 +5,7 @@
 </ActionBar>
 
 
-<GridLayout columns="*,auto,*" rows="20, auto, auto, auto, auto, auto" #overlay class="overlay">
+<GridLayout columns="*,auto,*" rows="20, auto, auto, auto, auto, auto, auto" #overlay class="overlay">
 
     <!-- <StackLayout colSpan="3" row="0" class="top">
         <Label class="answer-text text-center" [text]="'Common Conversions'" textWrap="true" ></Label>
@@ -86,7 +86,25 @@
         <Label class="h3 text-center font-black" text="Celsius" textWrap="true"></Label>
     </StackLayout>
 
-    <Button colSpan="3" row="5" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory=true
+    <StackLayout col="0" row="5" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 0" (textChange)="ozMilChange($event,0)"
+            class="input" [text]="ounces ? ounces.toFixed(2) : ''">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Fluid Ounces" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="5" class="center middle">
+        <Label class="h3 text-center font-black" fontSize="28" text="=" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="2" row="5" class="center top input-field ">
+        <TextField keyboardType="number" autocorrect="false" (focus)="focus = 1" (textChange)="ozMilChange($event,1)"
+            [text]="mills ? mills.toFixed(4) : ''" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Milliliters" textWrap="true"></Label>
+    </StackLayout>
+
+    <Button colSpan="3" row="6" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory=true
         pageTransition="slideRight" class="btn btn-primary top"></Button>
 
 </GridLayout>
