@@ -113,6 +113,7 @@ export class PennComponent implements OnInit {
             }
             const tempUnit = this.currentTabView == 'standard' ? (Number(this.tmax) - 32) / 1.8 : this.tmax;
             this.rmr = this.dataService.penn(this.rmr, tempUnit, this.liters);
+            this.rmrFemale = this.dataService.penn(this.rmrFemale, tempUnit, this.liters);
         }
 
         // this.rmr *= this.selectedFactor;
