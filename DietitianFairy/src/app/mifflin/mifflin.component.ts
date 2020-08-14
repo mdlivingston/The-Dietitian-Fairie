@@ -1,21 +1,19 @@
-import { DataService } from "./../services/data.service";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
-import { Component, OnInit, ViewChild, ElementRef, Input } from "@angular/core";
-import { TextField } from "tns-core-modules/ui/text-field/text-field";
-import {
-    SegmentedBarItem,
-    SegmentedBar
-} from "tns-core-modules/ui/segmented-bar/segmented-bar";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
-import { Page } from "tns-core-modules/ui/page/page";
-import { ListPicker } from "tns-core-modules/ui/list-picker/list-picker";
 import { AnimationCurve } from "tns-core-modules/ui/enums/enums";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
+import { ListPicker } from "tns-core-modules/ui/list-picker/list-picker";
+import { Page } from "tns-core-modules/ui/page/page";
+import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar/segmented-bar";
+import { TextField } from "tns-core-modules/ui/text-field/text-field";
+import { DataService } from "./../services/data.service";
 @Component({
     selector: "ns-mifflin",
     templateUrl: "./mifflin.component.html",
     styleUrls: ["./mifflin.component.css"]
 })
-export class MifflinComponent implements OnInit {
+export class MifflinComponent implements OnInit
+{
     height: number;
     weight: number;
     age: number;
@@ -63,7 +61,8 @@ export class MifflinComponent implements OnInit {
         private page: Page
     ) { }
 
-    ngOnInit() {
+    ngOnInit()
+    {
         let segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
         segmentedBarItem.title = "Standard Units";
         this.tabItems.push(segmentedBarItem);
@@ -77,45 +76,54 @@ export class MifflinComponent implements OnInit {
         );
         this._overlayGridLayout = this.page.getViewById("overlayGridLayout");
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             let textField: TextField = this.weightField.nativeElement;
             textField.focus();
         }, 500);
 
     }
-    onTabChange(args) {
+    onTabChange(args)
+    {
         let segmentedBar = <SegmentedBar>args.object;
         segmentedBar.selectedIndex == 0
             ? (this.currentTabView = "standard")
             : (this.currentTabView = "metric");
     }
-    onWeightChange(args) {
+    onWeightChange(args)
+    {
         let textField = <TextField>args.object;
         this.weight = Number(textField.text);
         this.calculateMifflin();
     }
-    onHeightChange(args) {
+    onHeightChange(args)
+    {
         let textField = <TextField>args.object;
         this.height = Number(textField.text);
         this.calculateMifflin();
     }
-    onAgeChange(args) {
+    onAgeChange(args)
+    {
         let textField = <TextField>args.object;
         this.age = Number(textField.text);
         this.calculateMifflin();
     }
-    onTempChange(args) {
+    onTempChange(args)
+    {
         let textField = <TextField>args.object;
         this.selectedFeverFactor = Number(textField.text);
-        if (this.selectedFeverFactor > 0) {
+        if (this.selectedFeverFactor > 0)
+        {
             this.calculateMifflin();
-        } else {
+        } else
+        {
             this.selectedFeverFactor = null;
         }
 
     }
     // Select Date
-    onOpenSelectFactor() {
+    onOpenSelectFactor()
+    {
         let textField: TextField = this.factorField.nativeElement;
 
         textField.dismissSoftInput();
@@ -133,7 +141,8 @@ export class MifflinComponent implements OnInit {
         })
     }
 
-    onCloseSelectFactor(isCancel: boolean) {
+    onCloseSelectFactor(isCancel: boolean)
+    {
         // if (this.selectedFactor == 1) {
         //     this.calculateMifflin();
         // }
@@ -147,7 +156,7 @@ export class MifflinComponent implements OnInit {
         this._selectDateGridLayout.animate({
             //opacity: 0,
             //backgroundColor: new Color("Blue"),
-            translate: { x: 700, y: 0 },
+            translate: { x: 1200, y: 0 },
             //scale: { x: 2, y: 2 },
             rotate: 196,
             duration: 500,
@@ -156,16 +165,20 @@ export class MifflinComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    selectedIndexChangedFactor(args) {
+    selectedIndexChangedFactor(args)
+    {
         let picker = <ListPicker>args.object;
         this.factorIndex = picker.selectedIndex;
         this.selectedFactor = this.factorList[picker.selectedIndex];
     }
-    calculateMifflin() {
+    calculateMifflin()
+    {
         this.answerMale = 0;
         this.answerFemale = 0;
-        if (this.age && this.weight && this.height) {
-            if (this.currentTabView == "standard") {
+        if (this.age && this.weight && this.height)
+        {
+            if (this.currentTabView == "standard")
+            {
                 this.answerMale = this.dataService.mifflin(
                     this.weight * 0.45359237,
                     this.height * 2.54,
@@ -178,7 +191,8 @@ export class MifflinComponent implements OnInit {
                     this.age,
                     0
                 );
-            } else {
+            } else
+            {
                 this.answerMale = this.dataService.mifflin(
                     this.weight,
                     this.height,
@@ -197,7 +211,8 @@ export class MifflinComponent implements OnInit {
         this.answerMale *= this.selectedFactor;
         this.answerFemale *= this.selectedFactor;
 
-        if (this.selectedFeverFactor > 98.6) {
+        if (this.selectedFeverFactor > 98.6)
+        {
             this.answerMale *= ((this.selectedFeverFactor - 98.6) * 1.07)
             this.answerFemale *= ((this.selectedFeverFactor - 98.6) * 1.07)
         }

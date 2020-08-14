@@ -61,7 +61,7 @@ components that have the btn class name.
   margin: 0 24;
   border-radius: 10;
   /* opacity: 0; */
-  transform: translateX(500);
+  transform: translateX(1200);
   rotate: 196;
 }
 .title-select-factor {
