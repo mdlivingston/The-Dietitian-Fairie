@@ -1,67 +1,92 @@
-import { DataService } from './../services/data.service';
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Page } from "tns-core-modules/ui/page/page";
-import { GridLayout } from 'tns-core-modules/ui/layouts/grid-layout/grid-layout';
+import { LocationStrategy } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from 'nativescript-angular/router';
 import { AnimationCurve } from "tns-core-modules/ui/enums";
-import { TextField } from "tns-core-modules/ui/text-field";
-import { LocationStrategy } from '@angular/common';
+import { Page } from "tns-core-modules/ui/page/page";
 @Component({
     selector: "Home",
     moduleId: module.id,
     styleUrls: ["./home.component.css"],
     templateUrl: "./home.component.html"
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit
+{
 
     @ViewChild("fairy", { static: false }) fairy: ElementRef;
-    constructor(public router: RouterExtensions, private page: Page, private location: LocationStrategy) {
-        location.onPopState(() => {
+    constructor(public router: RouterExtensions, private page: Page, private location: LocationStrategy)
+    {
+        location.onPopState(() =>
+        {
             this.dropInEllieFly();
         });
     }
 
-    ngOnInit() {
+    ngOnInit()
+    {
         //this.openModal('bmi');
         // this.dropInEllieFly();
-        setTimeout(() => {
+        setTimeout(() =>
+        {
+            this.goToPage('/basic-needs');
             this.dropInEllieFly();
         }, 500);
     }
 
 
-    goToPage(page) {
-        if (page == '/bmi') {
+    goToPage(page)
+    {
+        if (page == '/bmi')
+        {
             this.pageUpEllieFly()
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'curlUp', duration: 1000 } });
             }, 100);
-        } else if (page == '/conversions') {
+        } else if (page == '/conversions')
+        {
             this.pageSlideEllieFly()
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideLeft', duration: 700 } });
             }, 100);
-        } else if (page == '/mifflin') {
+        } else if (page == '/mifflin')
+        {
             this.floatDownEllieFly(380)
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
             }, 850);
-        } else if (page == '/benedict') {
+        } else if (page == '/benedict')
+        {
             this.floatDownEllieFly(510)
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
             }, 900);
-        } else if (page == '/penn-b') {
+        } else if (page == '/penn-b')
+        {
             this.shootDownEllieFly();
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 //this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideBottom', duration: 0 } });
             }, 100);
-        } else if (page == '/penn') {
+        } else if (page == '/penn')
+        {
             this.spiralDownEllieFly()
-            setTimeout(() => {
+            setTimeout(() =>
+            {
+                //this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideTop', duration: 0 } });
+            }, 800);
+        }
+        else if (page == '/basic-needs')
+        {
+            this.spiralDownEllieFly()
+            setTimeout(() =>
+            {
                 //this.backFlipEllieFly();
                 this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideTop', duration: 0 } });
             }, 800);
@@ -70,7 +95,8 @@ export class HomeComponent implements OnInit {
 
     }
 
-    flyEllieFly() {
+    flyEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -81,7 +107,8 @@ export class HomeComponent implements OnInit {
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
+        }).then(() =>
+        {
             this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),
@@ -92,7 +119,8 @@ export class HomeComponent implements OnInit {
                 //delay: 20,
                 //iterations: 5,
                 curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-            }).then(() => {
+            }).then(() =>
+            {
                 this.fairy.nativeElement.animate({
                     //opacity: .9,
                     //backgroundColor: new Color("Blue"),
@@ -107,7 +135,8 @@ export class HomeComponent implements OnInit {
             })
         })
     }
-    backFlipEllieFly() {
+    backFlipEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -118,7 +147,8 @@ export class HomeComponent implements OnInit {
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
+        }).then(() =>
+        {
             this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),
@@ -132,7 +162,8 @@ export class HomeComponent implements OnInit {
             })
         })
     }
-    dropInEllieFly() {
+    dropInEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -145,7 +176,8 @@ export class HomeComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    pageUpEllieFly() {
+    pageUpEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -158,7 +190,8 @@ export class HomeComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    pageSlideEllieFly() {
+    pageSlideEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -171,7 +204,8 @@ export class HomeComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    floatDownEllieFly(y) {
+    floatDownEllieFly(y)
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -182,7 +216,8 @@ export class HomeComponent implements OnInit {
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
+        }).then(() =>
+        {
             this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),
@@ -196,7 +231,8 @@ export class HomeComponent implements OnInit {
             })
         })
     }
-    shootDownEllieFly() {
+    shootDownEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -209,7 +245,8 @@ export class HomeComponent implements OnInit {
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
         })
     }
-    spiralDownEllieFly() {
+    spiralDownEllieFly()
+    {
         this.fairy.nativeElement.animate({
             //opacity: .9,
             //backgroundColor: new Color("Blue"),
@@ -220,7 +257,8 @@ export class HomeComponent implements OnInit {
             //delay: 20,
             //iterations: 5,
             curve: AnimationCurve.cubicBezier(0.1, 0.1, 0.1, 1)
-        }).then(() => {
+        }).then(() =>
+        {
             this.fairy.nativeElement.animate({
                 //opacity: .9,
                 //backgroundColor: new Color("Blue"),

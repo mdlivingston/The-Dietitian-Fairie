@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: "benedict", loadChildren: "~/app/benedict/benedict.module#BenedictModule" },
     { path: "penn", loadChildren: "~/app/penn/penn.module#PennModule" },
     { path: "penn-b", loadChildren: "~/app/penn-b/penn-b.module#PennBModule" },
+    { path: "basic-needs", loadChildren: "~/app/basic-needs/basic-needs.module#BasicNeedsModule" }
 ];
 
 @NgModule({

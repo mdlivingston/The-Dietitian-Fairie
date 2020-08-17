@@ -1,0 +1,100 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" fontSize="22" text="Basic Needs"></Label>
+    <NavigationButton text="" (tap)="router.back()" android.systemIcon="ic_menu_back">
+    </NavigationButton>
+</ActionBar>
+
+<ScrollView>
+    <GridLayout columns="*,*" rows="40, auto, 40, auto, auto, 40, auto, auto, 40, auto, auto, 350" #overlay
+        class="overlay">
+        <SegmentedBar backgroundColor="rgb(85,196,230)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
+            (selectedIndexChange)="onTabChange($event)">
+        </SegmentedBar>
+
+        <StackLayout marginBottom="10" marginTop="25" width="175"
+            visibility="{{ currentTabView == 'standard' ? 'visible' : 'collapsed' }}" colSpan="3" row="1"
+            class="center middle input-field ">
+            <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onBodyWeightChange($event)"
+                class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Weight (lbs)" textWrap="true"></Label>
+        </StackLayout>
+
+        <StackLayout marginTop="10" width="175" visibility="{{ currentTabView == 'metric' ? 'visible' : 'collapsed' }}"
+            colSpan="3" row="1" class="center middle input-field ">
+            <TextField keyboardType="number" autocorrect="false" (textChange)="onBodyWeightChange($event)"
+                class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Weight (kg)" textWrap="true"></Label>
+        </StackLayout>
+
+        <!-- ENERGY / CALORIE NEEDS -->
+        <Label row="2" colSpan="3" class="h3  text-center font-black" text="Energy" textWrap="true"></Label>
+
+        <GridLayout colSpan="3" row="3" columns="*,*">
+            <StackLayout col="0" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="'Calorie Needs:'" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+            <StackLayout col="1" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="calorieNeeds.toFixed(0)" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+        </GridLayout>
+
+        <StackLayout marginBottom="10" width="175" colSpan="2" row="4" class="center middle input-field ">
+            <TextField keyboardType="number" autocorrect="false" (textChange)="onEnergyChange($event)" class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Energy (kCals)" textWrap="true"></Label>
+        </StackLayout>
+
+        <!-- PROTEIN NEEDS -->
+        <Label row="5" colSpan="3" class="h3  text-center font-black" text="Protein" textWrap="true"></Label>
+
+        <GridLayout colSpan="3" row="6" columns="*,*">
+            <StackLayout col="0" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="'Protein Needs:'" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+            <StackLayout col="1" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="proteinNeeds.toFixed(0)" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+        </GridLayout>
+
+        <StackLayout marginBottom="10" width="175" colSpan="2" row="7" class="center left input-field ">
+            <TextField keyboardType="number" autocorrect="false" (textChange)="onProteinChange($event)" class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Protein (g)" textWrap="true"></Label>
+        </StackLayout>
+
+        <!-- FLUID NEEDS -->
+        <Label row="8" colSpan="3" class="h3  text-center font-black" text="Fluid" textWrap="true"></Label>
+
+        <GridLayout colSpan="3" row="9" columns="*,*">
+            <StackLayout col="0" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="'Fluid Needs:'" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+            <StackLayout col="1" row="0" class="middle">
+                <Label class="answer-text text-center" [text]="fluidNeeds.toFixed(0)" textWrap="true"
+                    marginBottom="25"></Label>
+            </StackLayout>
+        </GridLayout>
+
+        <StackLayout marginBottom="10" width="175" colSpan="2" row="10" class="center left input-field ">
+            <TextField keyboardType="number" autocorrect="false" (textChange)="onFluidChange($event)" class="input">
+            </TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <Label class="h3 text-center font-black" text="Fluids (mL)" textWrap="true"></Label>
+        </StackLayout>
+
+
+        <Button colSpan="3" row="11" [text]="'Close'" [nsRouterLink]="['/home']" clearHistory="true"
+            pageTransition="flipLeft" class="btn btn-primary top"></Button>
+    </GridLayout>
+</ScrollView>

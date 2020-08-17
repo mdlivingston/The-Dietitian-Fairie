@@ -66,6 +66,14 @@ Tmax: maximum body temp in the past 24 hours (°Celsius)
             </Label>
         </StackLayout>
 
+        <StackLayout class="bmi-card" (tap)="goToPage('/basic-needs')" rippleColor="black" width="95%" height="30%"
+            padding="12">
+            <Label text="Basic Needs" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+            <Label class="font-black" text=" Energy = kCal/kg  Protein = g/kg Fluid = mL/kg" fontSize="14"
+                textWrap="true">
+            </Label>
+        </StackLayout>
+
     </StackLayout>
 
 
