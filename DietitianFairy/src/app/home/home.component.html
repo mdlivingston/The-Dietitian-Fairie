@@ -25,6 +25,30 @@ Fahrenheit to Celsius (X°F − 32) × 5/9 = X°C" fontSize="14" textWrap="true"
             </Label>
         </StackLayout>
 
+        <StackLayout class="bmi-card" (tap)="goToPage('/basic-needs')" rippleColor="black" width="95%" height="30%"
+            padding="12">
+            <Label text="Basic Needs" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+            <Label class="font-black" text=" Energy = kCal/kg  Protein = g/kg Fluid = mL/kg" fontSize="14"
+                textWrap="true">
+            </Label>
+        </StackLayout>
+
+        <StackLayout class="bmi-card" (tap)="goToPage('/ibw')" rippleColor="black" width="95%" height="30%"
+            padding="12">
+            <Label text="Ideal Body Weight (Hamwi)" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+            <Label class="font-black" text="Female: 100 lbs for the first 5 feet, + 5lb for each additional inch
+Male: 106 lbs for the first 5 feet + 6lb for each additional inch" fontSize="14" textWrap="true">
+            </Label>
+        </StackLayout>
+
+        <StackLayout class="bmi-card" (tap)="goToPage('/weight-change')" rippleColor="black" width="95%" height="30%"
+            padding="12">
+            <Label text="Weight Change" class="fairy-font" fontSize="20" marginBottom="16"></Label>
+            <Label class="font-black" text="% UBW = ABW / UBW
+% Weight Change = ABW - UBW / UBW" fontSize="14" textWrap="true">
+            </Label>
+        </StackLayout>
+
         <StackLayout class="bmi-card " (tap)="goToPage('/mifflin')" rippleColor="black" width="95%" height="30%"
             padding="12">
             <Label text="Mifflin St. Jeor" class="fairy-font" fontSize="20" marginBottom="16"></Label>
@@ -66,13 +90,7 @@ Tmax: maximum body temp in the past 24 hours (°Celsius)
             </Label>
         </StackLayout>
 
-        <StackLayout class="bmi-card" (tap)="goToPage('/basic-needs')" rippleColor="black" width="95%" height="30%"
-            padding="12">
-            <Label text="Basic Needs" class="fairy-font" fontSize="20" marginBottom="16"></Label>
-            <Label class="font-black" text=" Energy = kCal/kg  Protein = g/kg Fluid = mL/kg" fontSize="14"
-                textWrap="true">
-            </Label>
-        </StackLayout>
+
 
     </StackLayout>
 

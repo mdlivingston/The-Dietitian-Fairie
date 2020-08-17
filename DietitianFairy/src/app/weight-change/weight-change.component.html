@@ -1,0 +1,57 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" fontSize="22" text="Weight Change"></Label>
+    <NavigationButton text="" (tap)="router.back()" android.systemIcon="ic_menu_back">
+    </NavigationButton>
+</ActionBar>
+
+
+<GridLayout columns="*,*" rows="75, auto, auto, auto, auto, auto, auto, auto, auto, auto" #overlay class="overlay">
+
+    <StackLayout col="0" row="0" class="middle">
+        <Label class="answer-text text-center" fontSize="22" [text]="'Usual Body Weight:'" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="0" class="middle">
+        <Label class="answer-text text-center" [text]="UBW.toFixed(0) + '%'" textWrap="true"></Label>
+    </StackLayout>
+
+    <StackLayout col="0" row="1" class="middle">
+        <Label class="answer-text text-center" fontSize="22" [text]="'Weight Change:'" textWrap="true"
+            marginBottom="25"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="1" class="middle">
+        <Label class="answer-text text-center" [text]="weightChange.toFixed(0) + '%'" textWrap="true"
+            marginBottom="25"></Label>
+    </StackLayout>
+
+    <StackLayout col="0" row="2" class="center bottom input-field ">
+        <TextField #weightField keyboardType="number" autocorrect="false" (textChange)="onCurrentWeightChange($event)"
+            class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Current Weight (lbs)" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout col="1" row="2" class="center bottom input-field ">
+        <TextField keyboardType="number" autocorrect="false" (textChange)="onUsualWeightChange($event)" class="input">
+        </TextField>
+        <StackLayout class="hr-light"></StackLayout>
+        <Label class="h3 text-center font-black" text="Usual Weight (lbs)" textWrap="true"></Label>
+    </StackLayout>
+
+    <Label row="3" colSpan="2" class="fairy-font  text-center font-black" fontSize="22"
+        text="Significant weight loss criteria" textWrap="true" marginBottom="15"></Label>
+    <Label row="4" colSpan="2" class="text-center font-black" text="> 2% in 1 week" textWrap="true"
+        marginBottom="5"></Label>
+    <Label row="5" colSpan="2" class="text-center font-black" text="> 5% in 1 month" textWrap="true"
+        marginBottom="5"></Label>
+    <Label row="6" colSpan="2" class="text-center font-black" text="> 7.5% in 3 months" textWrap="true"
+        marginBottom="5"></Label>
+    <Label row="7" colSpan="2" class="text-center font-black" text="> 10% in 6 months" textWrap="true"
+        marginBottom="5"></Label>
+    <Label row="8" colSpan="2" class="text-center font-black" text="> 20% in 1 year" textWrap="true"
+        marginBottom="15"></Label>
+
+    <Label row="9" colSpan="2" class="text-center underline font-black" text="Malnutrition Criteria PDF" fontSize="22"
+        textWrap="true" [nsRouterLink]="['/weight-change/malnutrition-pdf']"></Label>
+
+
+</GridLayout>

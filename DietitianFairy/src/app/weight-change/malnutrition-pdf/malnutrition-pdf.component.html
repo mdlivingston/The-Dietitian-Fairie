@@ -1,0 +1,10 @@
+<ActionBar class="action-bar">
+    <Label class="header" text="Malnutrition Criteria PDF"></Label>
+    <NavigationButton text="" (tap)="routerExtensions.back()" android.systemIcon="ic_menu_back">
+    </NavigationButton>
+</ActionBar>
+
+
+<GridLayout rows="*" columns="*" sdkExampleTitle sdkToggleNavButton>
+    <WebView row="0" col="0" #myWebView [src]="url" (loadStarted)="onLoadStarted($event)"></WebView>
+</GridLayout>

@@ -7,8 +7,8 @@
 <ScrollView>
     <GridLayout columns="*,*" rows="40, auto, 40, auto, auto, 40, auto, auto, 40, auto, auto, 350" #overlay
         class="overlay">
-        <SegmentedBar backgroundColor="rgb(85,196,230)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
-            (selectedIndexChange)="onTabChange($event)">
+        <SegmentedBar backgroundColor="rgb(85,196,230)" selectedBackgroundColor="white" color="black"
+            class="tab-bar top" row="0" colSpan="3" [items]="tabItems" (selectedIndexChange)="onTabChange($event)">
         </SegmentedBar>
 
         <StackLayout marginBottom="10" marginTop="25" width="175"

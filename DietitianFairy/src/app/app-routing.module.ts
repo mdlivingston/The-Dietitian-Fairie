@@ -11,7 +11,9 @@ const routes: Routes = [
     { path: "benedict", loadChildren: "~/app/benedict/benedict.module#BenedictModule" },
     { path: "penn", loadChildren: "~/app/penn/penn.module#PennModule" },
     { path: "penn-b", loadChildren: "~/app/penn-b/penn-b.module#PennBModule" },
-    { path: "basic-needs", loadChildren: "~/app/basic-needs/basic-needs.module#BasicNeedsModule" }
+    { path: "basic-needs", loadChildren: "~/app/basic-needs/basic-needs.module#BasicNeedsModule" },
+    { path: "ibw", loadChildren: "~/app/ibw/ibw.module#IbwModule" },
+    { path: "weight-change", loadChildren: "~/app/weight-change/weight-change.module#WeightChangeModule" }
 ];
 
 @NgModule({

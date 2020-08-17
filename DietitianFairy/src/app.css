@@ -115,12 +115,13 @@ components that have the btn class name.
   color: black;
   font-size: 24;
   border-color: rgba(164, 193, 255, 0.7);
-  border-bottom-width: 1.5;
+  border-bottom-width: 0.5;
   border-left-width: 0.5;
   border-right-width: 0.5;
-  border-top-width: 0.25;
+  border-top-width: 0.5;
   border-radius: 15;
   width: 95%;
+  font-family: "Bellefair", serif;
 }
 .input-field {
   /* margin-bottom: 25; */
@@ -128,10 +129,10 @@ components that have the btn class name.
   padding: 0 10;
   margin: 0 5 10 5;
   border-color: rgba(180, 138, 253, 0.7);
-  border-bottom-width: 1.5;
+  border-bottom-width: 0.5;
   border-left-width: 0.5;
   border-right-width: 0.5;
-  border-top-width: 0.25;
+  border-top-width: 0.5;
   border-radius: 15;
   vertical-align: middle;
   /* padding: 10 10 10 10; */

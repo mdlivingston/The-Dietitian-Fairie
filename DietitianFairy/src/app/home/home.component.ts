@@ -11,7 +11,6 @@ import { Page } from "tns-core-modules/ui/page/page";
 })
 export class HomeComponent implements OnInit
 {
-
     @ViewChild("fairy", { static: false }) fairy: ElementRef;
     constructor(public router: RouterExtensions, private page: Page, private location: LocationStrategy)
     {
@@ -27,7 +26,7 @@ export class HomeComponent implements OnInit
         // this.dropInEllieFly();
         setTimeout(() =>
         {
-            this.goToPage('/basic-needs');
+            //this.goToPage('/weight-change');
             this.dropInEllieFly();
         }, 500);
     }
@@ -51,20 +50,20 @@ export class HomeComponent implements OnInit
             }, 100);
         } else if (page == '/mifflin')
         {
-            this.floatDownEllieFly(380)
+            this.shootDownEllieFly();
             setTimeout(() =>
             {
-                this.backFlipEllieFly();
-                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
-            }, 850);
+                //this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideBottom', duration: 0 } });
+            }, 100);
         } else if (page == '/benedict')
         {
-            this.floatDownEllieFly(510)
+            this.shootDownEllieFly();
             setTimeout(() =>
             {
-                this.backFlipEllieFly();
-                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
-            }, 900);
+                //this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideBottom', duration: 0 } });
+            }, 100);
         } else if (page == '/penn-b')
         {
             this.shootDownEllieFly();
@@ -84,12 +83,33 @@ export class HomeComponent implements OnInit
         }
         else if (page == '/basic-needs')
         {
-            this.spiralDownEllieFly()
+            this.floatDownEllieFly(380)
+            setTimeout(() =>
+            {
+                this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
+            }, 850);
+
+        }
+        else if (page == '/ibw')
+        {
+            this.floatDownEllieFly(510)
+            setTimeout(() =>
+            {
+                this.backFlipEllieFly();
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'flip', duration: 0 } });
+            }, 900);
+
+        }
+        else if (page == '/weight-change')
+        {
+            this.shootDownEllieFly();
             setTimeout(() =>
             {
                 //this.backFlipEllieFly();
-                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideTop', duration: 0 } });
-            }, 800);
+                this.router.navigate([page], { clearHistory: false, animated: true, transition: { name: 'slideBottom', duration: 0 } });
+            }, 100);
+
         }
 
 

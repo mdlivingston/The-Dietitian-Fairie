@@ -5,8 +5,8 @@
 </ActionBar>
 
 <GridLayout columns="*,*,*" rows="60, auto, auto, auto, *" #overlay class="overlay">
-  <SegmentedBar backgroundColor="rgb(180,138,253)" class="tab-bar top" row="0" colSpan="3" [items]="tabItems"
-    (selectedIndexChange)="onTabChange($event)">
+  <SegmentedBar backgroundColor="rgb(180,138,253)" selectedBackgroundColor="white" color="black" class="tab-bar top"
+    row="0" colSpan="3" [items]="tabItems" (selectedIndexChange)="onTabChange($event)">
   </SegmentedBar>
 
   <GridLayout colSpan="3" row="1" rows="*,*" columns="*,*">

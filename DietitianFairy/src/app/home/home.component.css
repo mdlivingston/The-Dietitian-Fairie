@@ -16,10 +16,10 @@
 
 .bmi-card {
   border-color: rgba(226, 152, 216, 0.7);
-  border-bottom-width: 1.5;
+  border-bottom-width: 0.5;
   border-left-width: 0.5;
   border-right-width: 0.5;
-  border-top-width: 0.25;
+  border-top-width: 0.5;
   border-radius: 15;
   margin-bottom: 15;
 }
