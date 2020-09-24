@@ -1,10 +1,7 @@
-import { PennComponent } from './penn.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
-
-
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript/angular';
 import { PennRoutingModule } from './penn-routing.module';
+import { PennComponent } from './penn.component';
 
 @NgModule({
     imports: [

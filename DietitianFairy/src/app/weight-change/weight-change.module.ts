@@ -1,9 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NativeScriptCommonModule } from 'nativescript-angular/common';
-import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript/angular';
 import { MalnutritionPdfComponent } from './malnutrition-pdf/malnutrition-pdf.component';
 import { WeightChangeRoutingModule } from './weight-change-routing.module';
 import { WeightChangeComponent } from './weight-change.component';
+
 
 
 @NgModule({

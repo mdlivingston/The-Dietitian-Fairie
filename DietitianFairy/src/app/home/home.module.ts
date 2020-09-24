@@ -1,16 +1,15 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
-
+import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript/angular";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { NgShadowModule } from "nativescript-ngx-shadow";
+
+
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         HomeRoutingModule,
-        NativeScriptFormsModule,
-        NgShadowModule
+        NativeScriptFormsModule
     ],
     declarations: [
         HomeComponent

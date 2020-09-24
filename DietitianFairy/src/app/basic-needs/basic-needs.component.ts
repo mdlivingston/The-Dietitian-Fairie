@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
-import { Page } from 'tns-core-modules/ui/page';
-import { SegmentedBar, SegmentedBarItem } from 'tns-core-modules/ui/segmented-bar';
-import { TextField } from 'tns-core-modules/ui/text-field';
+import { RouterExtensions } from '@nativescript/angular';
+import { SegmentedBar, SegmentedBarItem, TextField } from '@nativescript/core';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -29,7 +27,6 @@ export class BasicNeedsComponent implements OnInit
     constructor(
         public router: RouterExtensions,
         private dataService: DataService,
-        private page: Page
     ) { }
 
     ngOnInit()

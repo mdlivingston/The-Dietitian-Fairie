@@ -1,8 +1,7 @@
-import { ConversionsComponent } from './conversions.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript/angular';
 import { ConversionsRoutingModule } from "./conversions-routing.module";
+import { ConversionsComponent } from './conversions.component';
 
 @NgModule({
     imports: [

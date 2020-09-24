@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { RouterExtensions } from '@nativescript/angular';
+import { Page, SegmentedBar, SegmentedBarItem, TextField } from '@nativescript/core';
 import { DataService } from '../services/data.service';
-import { SegmentedBarItem, SegmentedBar } from 'tns-core-modules/ui/segmented-bar/segmented-bar';
-import { TextField } from 'tns-core-modules/ui/text-field/text-field';
-import { Page } from 'tns-core-modules/ui/page/page';
+
 
 @Component({
     selector: 'ns-penn',
     templateUrl: './penn.component.html',
     styleUrls: ['./penn.component.css']
 })
-export class PennComponent implements OnInit {
+export class PennComponent implements OnInit
+{
     height: number;
     weight: number;
     age: number;
@@ -32,7 +32,8 @@ export class PennComponent implements OnInit {
         private page: Page
     ) { }
 
-    ngOnInit() {
+    ngOnInit()
+    {
         let segmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
         segmentedBarItem.title = "Standard Units";
         this.tabItems.push(segmentedBarItem);
@@ -41,48 +42,58 @@ export class PennComponent implements OnInit {
 
         this.tabItems.push(segmentedBarItem);
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             let textField: TextField = this.weightField.nativeElement;
             textField.focus();
         }, 500);
 
     }
-    onTabChange(args) {
+    onTabChange(args)
+    {
         let segmentedBar = <SegmentedBar>args.object;
         segmentedBar.selectedIndex == 0
             ? (this.currentTabView = "standard")
             : (this.currentTabView = "metric");
     }
-    onWeightChange(args) {
+    onWeightChange(args)
+    {
         let textField = <TextField>args.object;
         this.weight = Number(textField.text);
         this.calculatePennB();
     }
-    onHeightChange(args) {
+    onHeightChange(args)
+    {
         let textField = <TextField>args.object;
         this.height = Number(textField.text);
         this.calculatePennB();
     }
-    onAgeChange(args) {
+    onAgeChange(args)
+    {
         let textField = <TextField>args.object;
         this.age = Number(textField.text);
         this.calculatePennB();
     }
-    onTempChange(args) {
+    onTempChange(args)
+    {
         let textField = <TextField>args.object;
         this.tmax = Number(textField.text);
         this.calculatePennB();
     }
-    onLiterChange(args) {
+    onLiterChange(args)
+    {
         let textField = <TextField>args.object;
         this.liters = Number(textField.text);
         this.calculatePennB();
     }
 
 
-    calculatePennB() {
-        if (this.age && this.weight && this.height && this.liters && this.tmax) {
-            if (this.currentTabView == "standard") {
+    calculatePennB()
+    {
+        if (this.age && this.weight && this.height && this.liters && this.tmax)
+        {
+            if (this.currentTabView == "standard")
+            {
                 this.rmrFemale = this.dataService.mifflin(
                     this.weight * 0.45359237,
                     this.height * 2.54,
@@ -96,7 +107,8 @@ export class PennComponent implements OnInit {
                     1
                 );
 
-            } else {
+            } else
+            {
                 this.rmrFemale = this.dataService.mifflin(
                     this.weight,
                     this.height,

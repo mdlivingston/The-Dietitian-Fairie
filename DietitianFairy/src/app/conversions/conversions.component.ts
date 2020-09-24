@@ -1,13 +1,15 @@
-import { RouterExtensions } from 'nativescript-angular/router';
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { TextField } from 'tns-core-modules/ui/text-field/text-field';
-import { AnimationCurve } from 'tns-core-modules/ui/enums/enums';
+
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { RouterExtensions } from '@nativescript/angular';
+import { TextField } from '@nativescript/core';
+
 @Component({
     selector: 'ns-conversions',
     templateUrl: './conversions.component.html',
     styleUrls: ['./conversions.component.css']
 })
-export class ConversionsComponent implements OnInit {
+export class ConversionsComponent implements OnInit
+{
     inches: number;
     cmInch: number;
     meter: number;
@@ -24,102 +26,139 @@ export class ConversionsComponent implements OnInit {
     @ViewChild('inchField', { static: false }) inchField;
     constructor(public router: RouterExtensions) { }
 
-    ngOnInit() {
+    ngOnInit()
+    {
 
-        setTimeout(() => {
+        setTimeout(() =>
+        {
             let textField: TextField = this.inchField.nativeElement;
             textField.focus();
         }, 500);
     }
-    cmInchChange(args, switcher) {
+    cmInchChange(args, switcher)
+    {
         let textField = <TextField>args.object;
-        if (this.focus == 0 && switcher == 0) {
-            if (textField.text) {
+        if (this.focus == 0 && switcher == 0)
+        {
+            if (textField.text)
+            {
                 this.cmInch = Number(textField.text) * 2.54;
-            } else {
+            } else
+            {
                 this.cmInch = null
             }
 
-        } else if (this.focus == 1 && switcher == 1) {
-            if (textField.text) {
+        } else if (this.focus == 1 && switcher == 1)
+        {
+            if (textField.text)
+            {
                 this.inches = Number(2.54) / Number(textField.text);
-            } else {
+            } else
+            {
                 this.inches = null
             }
         }
     }
 
-    cmMeterChange(args, switcher) {
+    cmMeterChange(args, switcher)
+    {
         let textField = <TextField>args.object;
 
-        if (this.focus == 0 && switcher == 0) {
-            if (textField.text) {
+        if (this.focus == 0 && switcher == 0)
+        {
+            if (textField.text)
+            {
                 console.log(textField.text)
                 this.cmMeter = Number(textField.text) * 100
-            } else {
+            } else
+            {
                 this.cmMeter = null
             }
 
-        } else if (this.focus == 1 && switcher == 1) {
-            if (textField.text) {
+        } else if (this.focus == 1 && switcher == 1)
+        {
+            if (textField.text)
+            {
                 this.meter = Number(textField.text) / 100;
-            } else {
+            } else
+            {
                 this.meter = null
             }
         }
 
     }
 
-    kgPoundChange(args, switcher) {
+    kgPoundChange(args, switcher)
+    {
         let textField = <TextField>args.object;
-        if (this.focus == 0 && switcher == 0) {
-            if (textField.text) {
+        if (this.focus == 0 && switcher == 0)
+        {
+            if (textField.text)
+            {
                 this.pounds = 2.2 * Number(textField.text);
-            } else {
+            } else
+            {
                 this.pounds = null
             }
 
-        } else if (this.focus == 1 && switcher == 1) {
-            if (textField.text) {
+        } else if (this.focus == 1 && switcher == 1)
+        {
+            if (textField.text)
+            {
                 this.kg = Number(textField.text) / 2.2
-            } else {
+            } else
+            {
                 this.kg = null
             }
         }
     }
-    tempChange(args, switcher) {
+    tempChange(args, switcher)
+    {
         let textField = <TextField>args.object;
-        if (this.focus == 0 && switcher == 0) {
-            if (textField.text) {
+        if (this.focus == 0 && switcher == 0)
+        {
+            if (textField.text)
+            {
                 this.cels = (Number(textField.text) - 32) / 1.8;
-            } else {
+            } else
+            {
                 this.cels = null
             }
 
-        } else if (this.focus == 1 && switcher == 1) {
-            if (textField.text) {
+        } else if (this.focus == 1 && switcher == 1)
+        {
+            if (textField.text)
+            {
                 this.faren = Number(textField.text) * 1.8 + 32;
-            } else {
+            } else
+            {
                 this.faren = null
             }
         }
 
     }
 
-    ozMilChange(args, switcher) {
+    ozMilChange(args, switcher)
+    {
         let textField = <TextField>args.object;
-        if (this.focus == 0 && switcher == 0) {
-            if (textField.text) {
+        if (this.focus == 0 && switcher == 0)
+        {
+            if (textField.text)
+            {
                 this.mills = Number(textField.text) / 0.033814;
-            } else {
+            } else
+            {
                 this.mills = null;
             }
 
 
-        } else if (this.focus == 1 && switcher == 1) {
-            if (textField.text) {
+        } else if (this.focus == 1 && switcher == 1)
+        {
+            if (textField.text)
+            {
                 this.ounces = Number(textField.text) * 0.033814;
-            } else {
+            } else
+            {
                 this.ounces = null;
             }
         }

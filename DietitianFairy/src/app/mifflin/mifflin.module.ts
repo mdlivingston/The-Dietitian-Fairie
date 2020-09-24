@@ -1,10 +1,8 @@
-import { MifflinComponent } from './mifflin.component';
-import { MifflinRoutingModule } from './mifflin-routing.module';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript/angular';
+import { MifflinRoutingModule } from './mifflin-routing.module';
+import { MifflinComponent } from './mifflin.component';
 
-
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 @NgModule({
     imports: [
