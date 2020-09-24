@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { AnimationCurve } from "tns-core-modules/ui/enums/enums";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
-import { ListPicker } from "tns-core-modules/ui/list-picker/list-picker";
-import { Page } from "tns-core-modules/ui/page/page";
-import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar/segmented-bar";
-import { TextField } from "tns-core-modules/ui/text-field/text-field";
+import { RouterExtensions } from "@nativescript/angular";
+import { GridLayout, ListPicker, SegmentedBar, SegmentedBarItem, TextField } from "@nativescript/core";
+import { AnimationCurve } from "@nativescript/core/ui/enums";
+import { Page } from "@nativescript/core/ui/page";
 import { DataService } from "./../services/data.service";
 @Component({
     selector: "ns-mifflin",

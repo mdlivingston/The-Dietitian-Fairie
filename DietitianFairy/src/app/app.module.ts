@@ -1,11 +1,11 @@
-import { DataService } from './services/data.service';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
+import { NativeScriptAnimationsModule } from '@nativescript/angular/animations/animations.module';
+import { NativeScriptFormsModule } from '@nativescript/angular/forms/forms.module';
+import { NativeScriptModule } from '@nativescript/angular/nativescript.module';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { NativeScriptAnimationsModule } from 'nativescript-angular/animations';
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { DataService } from './services/data.service';
+
 
 @NgModule({
     bootstrap: [
@@ -14,7 +14,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptMaterialCardViewModule,
+        //NativeScriptMaterialCardViewModule,
         NativeScriptAnimationsModule,
         NativeScriptFormsModule
     ],

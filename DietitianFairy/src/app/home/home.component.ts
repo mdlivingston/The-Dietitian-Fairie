@@ -1,8 +1,8 @@
 import { LocationStrategy } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { RouterExtensions } from 'nativescript-angular/router';
-import { AnimationCurve } from "tns-core-modules/ui/enums";
-import { Page } from "tns-core-modules/ui/page/page";
+import { RouterExtensions } from '@nativescript/angular';
+import { AnimationCurve } from '@nativescript/core/ui/enums';
+import { Page } from '@nativescript/core/ui/page';
 @Component({
     selector: "Home",
     moduleId: module.id,

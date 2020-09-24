@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
-import { EventData, Page } from 'tns-core-modules/ui/page';
-import { TextField } from 'tns-core-modules/ui/text-field';
+import { RouterExtensions } from '@nativescript/angular';
+import { EventData } from '@nativescript/core';
+import { Page, TextField } from '@nativescript/core/ui';
 import { DataService } from '../services/data.service';
 
 @Component({

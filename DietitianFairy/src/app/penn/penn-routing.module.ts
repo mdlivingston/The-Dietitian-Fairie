@@ -1,7 +1,8 @@
-import { PennComponent } from './penn.component';
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { NativeScriptRouterModule } from '@nativescript/angular';
+import { PennComponent } from './penn.component';
+
 
 const routes: Routes = [
     { path: "", component: PennComponent }
